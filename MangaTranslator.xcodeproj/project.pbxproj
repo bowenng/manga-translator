@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */; };
+		933604CD24E9EC52003985B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604CC24E9EC52003985B4 /* ContentView.swift */; };
+		933604CF24E9EC54003985B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604CE24E9EC54003985B4 /* Assets.xcassets */; };
+		933604D224E9EC54003985B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604D124E9EC54003985B4 /* Preview Assets.xcassets */; };
+		933604DD24E9EC54003985B4 /* MangaTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */; };
+		933604E824E9EC54003985B4 /* MangaTranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604E724E9EC54003985B4 /* MangaTranslatorUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		933604D924E9EC54003985B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933604BF24E9EC52003985B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 933604C624E9EC52003985B4;
+			remoteInfo = MangaTranslator;
+		};
+		933604E424E9EC54003985B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 933604BF24E9EC52003985B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 933604C624E9EC52003985B4;
+			remoteInfo = MangaTranslator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		933604C724E9EC52003985B4 /* MangaTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorApp.swift; sourceTree = "<group>"; };
+		933604CC24E9EC52003985B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		933604CE24E9EC54003985B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		933604D124E9EC54003985B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		933604D324E9EC54003985B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		933604D824E9EC54003985B4 /* MangaTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorTests.swift; sourceTree = "<group>"; };
+		933604DE24E9EC54003985B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		933604E324E9EC54003985B4 /* MangaTranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaTranslatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		933604E724E9EC54003985B4 /* MangaTranslatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorUITests.swift; sourceTree = "<group>"; };
+		933604E924E9EC54003985B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		933604C424E9EC52003985B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		933604D524E9EC54003985B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		933604E024E9EC54003985B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		933604BE24E9EC52003985B4 = {
+			isa = PBXGroup;
+			children = (
+				933604C924E9EC52003985B4 /* MangaTranslator */,
+				933604DB24E9EC54003985B4 /* MangaTranslatorTests */,
+				933604E624E9EC54003985B4 /* MangaTranslatorUITests */,
+				933604C824E9EC52003985B4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		933604C824E9EC52003985B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				933604C724E9EC52003985B4 /* MangaTranslator.app */,
+				933604D824E9EC54003985B4 /* MangaTranslatorTests.xctest */,
+				933604E324E9EC54003985B4 /* MangaTranslatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		933604C924E9EC52003985B4 /* MangaTranslator */ = {
+			isa = PBXGroup;
+			children = (
+				933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */,
+				933604CC24E9EC52003985B4 /* ContentView.swift */,
+				933604CE24E9EC54003985B4 /* Assets.xcassets */,
+				933604D324E9EC54003985B4 /* Info.plist */,
+				933604D024E9EC54003985B4 /* Preview Content */,
+			);
+			path = MangaTranslator;
+			sourceTree = "<group>";
+		};
+		933604D024E9EC54003985B4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				933604D124E9EC54003985B4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		933604DB24E9EC54003985B4 /* MangaTranslatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */,
+				933604DE24E9EC54003985B4 /* Info.plist */,
+			);
+			path = MangaTranslatorTests;
+			sourceTree = "<group>";
+		};
+		933604E624E9EC54003985B4 /* MangaTranslatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				933604E724E9EC54003985B4 /* MangaTranslatorUITests.swift */,
+				933604E924E9EC54003985B4 /* Info.plist */,
+			);
+			path = MangaTranslatorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		933604C624E9EC52003985B4 /* MangaTranslator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 933604EC24E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslator" */;
+			buildPhases = (
+				933604C324E9EC52003985B4 /* Sources */,
+				933604C424E9EC52003985B4 /* Frameworks */,
+				933604C524E9EC52003985B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MangaTranslator;
+			productName = MangaTranslator;
+			productReference = 933604C724E9EC52003985B4 /* MangaTranslator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		933604D724E9EC54003985B4 /* MangaTranslatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 933604EF24E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslatorTests" */;
+			buildPhases = (
+				933604D424E9EC54003985B4 /* Sources */,
+				933604D524E9EC54003985B4 /* Frameworks */,
+				933604D624E9EC54003985B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				933604DA24E9EC54003985B4 /* PBXTargetDependency */,
+			);
+			name = MangaTranslatorTests;
+			productName = MangaTranslatorTests;
+			productReference = 933604D824E9EC54003985B4 /* MangaTranslatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		933604E224E9EC54003985B4 /* MangaTranslatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 933604F224E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslatorUITests" */;
+			buildPhases = (
+				933604DF24E9EC54003985B4 /* Sources */,
+				933604E024E9EC54003985B4 /* Frameworks */,
+				933604E124E9EC54003985B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				933604E524E9EC54003985B4 /* PBXTargetDependency */,
+			);
+			name = MangaTranslatorUITests;
+			productName = MangaTranslatorUITests;
+			productReference = 933604E324E9EC54003985B4 /* MangaTranslatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		933604BF24E9EC52003985B4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					933604C624E9EC52003985B4 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					933604D724E9EC54003985B4 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 933604C624E9EC52003985B4;
+					};
+					933604E224E9EC54003985B4 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 933604C624E9EC52003985B4;
+					};
+				};
+			};
+			buildConfigurationList = 933604C224E9EC52003985B4 /* Build configuration list for PBXProject "MangaTranslator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 933604BE24E9EC52003985B4;
+			productRefGroup = 933604C824E9EC52003985B4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				933604C624E9EC52003985B4 /* MangaTranslator */,
+				933604D724E9EC54003985B4 /* MangaTranslatorTests */,
+				933604E224E9EC54003985B4 /* MangaTranslatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		933604C524E9EC52003985B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				933604D224E9EC54003985B4 /* Preview Assets.xcassets in Resources */,
+				933604CF24E9EC54003985B4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		933604D624E9EC54003985B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		933604E124E9EC54003985B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		933604C324E9EC52003985B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				933604CD24E9EC52003985B4 /* ContentView.swift in Sources */,
+				933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		933604D424E9EC54003985B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				933604DD24E9EC54003985B4 /* MangaTranslatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		933604DF24E9EC54003985B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				933604E824E9EC54003985B4 /* MangaTranslatorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		933604DA24E9EC54003985B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 933604C624E9EC52003985B4 /* MangaTranslator */;
+			targetProxy = 933604D924E9EC54003985B4 /* PBXContainerItemProxy */;
+		};
+		933604E524E9EC54003985B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 933604C624E9EC52003985B4 /* MangaTranslator */;
+			targetProxy = 933604E424E9EC54003985B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		933604EA24E9EC54003985B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		933604EB24E9EC54003985B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		933604ED24E9EC54003985B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MangaTranslator/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MangaTranslator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowenng.MangaTranslator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		933604EE24E9EC54003985B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MangaTranslator/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MangaTranslator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowenng.MangaTranslator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		933604F024E9EC54003985B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MangaTranslatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowenng.MangaTranslatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MangaTranslator.app/MangaTranslator";
+			};
+			name = Debug;
+		};
+		933604F124E9EC54003985B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MangaTranslatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowenng.MangaTranslatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MangaTranslator.app/MangaTranslator";
+			};
+			name = Release;
+		};
+		933604F324E9EC54003985B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MangaTranslatorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowenng.MangaTranslatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MangaTranslator;
+			};
+			name = Debug;
+		};
+		933604F424E9EC54003985B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MangaTranslatorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowenng.MangaTranslatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MangaTranslator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		933604C224E9EC52003985B4 /* Build configuration list for PBXProject "MangaTranslator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				933604EA24E9EC54003985B4 /* Debug */,
+				933604EB24E9EC54003985B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		933604EC24E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				933604ED24E9EC54003985B4 /* Debug */,
+				933604EE24E9EC54003985B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		933604EF24E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				933604F024E9EC54003985B4 /* Debug */,
+				933604F124E9EC54003985B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		933604F224E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				933604F324E9EC54003985B4 /* Debug */,
+				933604F424E9EC54003985B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 933604BF24E9EC52003985B4 /* Project object */;
+}
