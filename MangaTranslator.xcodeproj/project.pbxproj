@@ -3,14 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */; };
-		933604CD24E9EC52003985B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604CC24E9EC52003985B4 /* ContentView.swift */; };
 		933604CF24E9EC54003985B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604CE24E9EC54003985B4 /* Assets.xcassets */; };
-		933604D224E9EC54003985B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604D124E9EC54003985B4 /* Preview Assets.xcassets */; };
 		933604DD24E9EC54003985B4 /* MangaTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */; };
 		933604E824E9EC54003985B4 /* MangaTranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604E724E9EC54003985B4 /* MangaTranslatorUITests.swift */; };
 		933604FB24E9ECCE003985B4 /* TranslatedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604FA24E9ECCE003985B4 /* TranslatedList.swift */; };
@@ -21,6 +19,7 @@
 		9336050B24EA166D003985B4 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050A24EA166D003985B4 /* ImagePickerButton.swift */; };
 		9336050D24EA1E4A003985B4 /* DummyTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050C24EA1E4A003985B4 /* DummyTranslator.swift */; };
 		9336050F24EA1E69003985B4 /* OfflineTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050E24EA1E69003985B4 /* OfflineTranslator.swift */; };
+		DC65B84658417E71622EA889 /* Pods_MangaTranslator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6754E6F12C8A3D0C9D08161F /* Pods_MangaTranslator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4ED1967BD8857202638F4ABC /* Pods-MangaTranslator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaTranslator.release.xcconfig"; path = "Target Support Files/Pods-MangaTranslator/Pods-MangaTranslator.release.xcconfig"; sourceTree = "<group>"; };
+		6754E6F12C8A3D0C9D08161F /* Pods_MangaTranslator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangaTranslator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79195245142FCF26074C0BFB /* Pods-MangaTranslator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangaTranslator.debug.xcconfig"; path = "Target Support Files/Pods-MangaTranslator/Pods-MangaTranslator.debug.xcconfig"; sourceTree = "<group>"; };
 		933604C724E9EC52003985B4 /* MangaTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorApp.swift; sourceTree = "<group>"; };
-		933604CC24E9EC52003985B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		933604CE24E9EC54003985B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		933604D124E9EC54003985B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		933604D324E9EC54003985B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		933604D824E9EC54003985B4 /* MangaTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorTests.swift; sourceTree = "<group>"; };
@@ -68,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC65B84658417E71622EA889 /* Pods_MangaTranslator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B46B1D648241958FD394F00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79195245142FCF26074C0BFB /* Pods-MangaTranslator.debug.xcconfig */,
+				4ED1967BD8857202638F4ABC /* Pods-MangaTranslator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		933604BE24E9EC52003985B4 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,8 @@
 				933604DB24E9EC54003985B4 /* MangaTranslatorTests */,
 				933604E624E9EC54003985B4 /* MangaTranslatorUITests */,
 				933604C824E9EC52003985B4 /* Products */,
+				7B46B1D648241958FD394F00 /* Pods */,
+				D9511EB4A4E346A6AED75147 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,20 +125,10 @@
 			children = (
 				933604F524E9EC6E003985B4 /* Source */,
 				933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */,
-				933604CC24E9EC52003985B4 /* ContentView.swift */,
 				933604CE24E9EC54003985B4 /* Assets.xcassets */,
 				933604D324E9EC54003985B4 /* Info.plist */,
-				933604D024E9EC54003985B4 /* Preview Content */,
 			);
 			path = MangaTranslator;
-			sourceTree = "<group>";
-		};
-		933604D024E9EC54003985B4 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				933604D124E9EC54003985B4 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		933604DB24E9EC54003985B4 /* MangaTranslatorTests */ = {
@@ -226,6 +228,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D9511EB4A4E346A6AED75147 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6754E6F12C8A3D0C9D08161F /* Pods_MangaTranslator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 933604EC24E9EC54003985B4 /* Build configuration list for PBXNativeTarget "MangaTranslator" */;
 			buildPhases = (
+				B86927026BBE605C32D19A29 /* [CP] Check Pods Manifest.lock */,
 				933604C324E9EC52003985B4 /* Sources */,
 				933604C424E9EC52003985B4 /* Frameworks */,
 				933604C524E9EC52003985B4 /* Resources */,
+				C3E4A8C02EB678B1CE7AE4B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,7 +341,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933604D224E9EC54003985B4 /* Preview Assets.xcassets in Resources */,
 				933604CF24E9EC54003985B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,13 +361,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B86927026BBE605C32D19A29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MangaTranslator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3E4A8C02EB678B1CE7AE4B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MangaTranslator/Pods-MangaTranslator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MangaTranslator/Pods-MangaTranslator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MangaTranslator/Pods-MangaTranslator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		933604C324E9EC52003985B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9336050D24EA1E4A003985B4 /* DummyTranslator.swift in Sources */,
-				933604CD24E9EC52003985B4 /* ContentView.swift in Sources */,
 				9336050924E9FC7D003985B4 /* MangaPicker.swift in Sources */,
 				9336050F24EA1E69003985B4 /* OfflineTranslator.swift in Sources */,
 				933604FD24E9F55F003985B4 /* TranslatedListCell.swift in Sources */,
@@ -518,6 +570,7 @@
 		};
 		933604ED24E9EC54003985B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79195245142FCF26074C0BFB /* Pods-MangaTranslator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -539,6 +592,7 @@
 		};
 		933604EE24E9EC54003985B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ED1967BD8857202638F4ABC /* Pods-MangaTranslator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

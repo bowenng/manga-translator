@@ -11,7 +11,7 @@ import SwiftUI
 struct MangaTranslatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MangaPicker(translator: OfflineTranslator())
         }
     }
 }
