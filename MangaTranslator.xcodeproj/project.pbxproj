@@ -13,6 +13,14 @@
 		933604D224E9EC54003985B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604D124E9EC54003985B4 /* Preview Assets.xcassets */; };
 		933604DD24E9EC54003985B4 /* MangaTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */; };
 		933604E824E9EC54003985B4 /* MangaTranslatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604E724E9EC54003985B4 /* MangaTranslatorUITests.swift */; };
+		933604FB24E9ECCE003985B4 /* TranslatedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604FA24E9ECCE003985B4 /* TranslatedList.swift */; };
+		933604FD24E9F55F003985B4 /* TranslatedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604FC24E9F55F003985B4 /* TranslatedListCell.swift */; };
+		9336050324E9F969003985B4 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050224E9F969003985B4 /* Translator.swift */; };
+		9336050724E9FA1C003985B4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050624E9FA1C003985B4 /* ImagePicker.swift */; };
+		9336050924E9FC7D003985B4 /* MangaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050824E9FC7D003985B4 /* MangaPicker.swift */; };
+		9336050B24EA166D003985B4 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050A24EA166D003985B4 /* ImagePickerButton.swift */; };
+		9336050D24EA1E4A003985B4 /* DummyTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050C24EA1E4A003985B4 /* DummyTranslator.swift */; };
+		9336050F24EA1E69003985B4 /* OfflineTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050E24EA1E69003985B4 /* OfflineTranslator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		933604E324E9EC54003985B4 /* MangaTranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaTranslatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933604E724E9EC54003985B4 /* MangaTranslatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorUITests.swift; sourceTree = "<group>"; };
 		933604E924E9EC54003985B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		933604FA24E9ECCE003985B4 /* TranslatedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedList.swift; sourceTree = "<group>"; };
+		933604FC24E9F55F003985B4 /* TranslatedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedListCell.swift; sourceTree = "<group>"; };
+		9336050224E9F969003985B4 /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		9336050624E9FA1C003985B4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9336050824E9FC7D003985B4 /* MangaPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaPicker.swift; sourceTree = "<group>"; };
+		9336050A24EA166D003985B4 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
+		9336050C24EA1E4A003985B4 /* DummyTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTranslator.swift; sourceTree = "<group>"; };
+		9336050E24EA1E69003985B4 /* OfflineTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTranslator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +111,7 @@
 		933604C924E9EC52003985B4 /* MangaTranslator */ = {
 			isa = PBXGroup;
 			children = (
+				933604F524E9EC6E003985B4 /* Source */,
 				933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */,
 				933604CC24E9EC52003985B4 /* ContentView.swift */,
 				933604CE24E9EC54003985B4 /* Assets.xcassets */,
@@ -128,6 +145,85 @@
 				933604E924E9EC54003985B4 /* Info.plist */,
 			);
 			path = MangaTranslatorUITests;
+			sourceTree = "<group>";
+		};
+		933604F524E9EC6E003985B4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9336050124E9F94F003985B4 /* MangaPicker */,
+				933604FE24E9F61A003985B4 /* Translator */,
+				933604F624E9EC81003985B4 /* TranslatedList */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		933604F624E9EC81003985B4 /* TranslatedList */ = {
+			isa = PBXGroup;
+			children = (
+				933604F924E9ECB6003985B4 /* Models */,
+				933604F824E9ECAA003985B4 /* ViewModels */,
+				933604F724E9ECA2003985B4 /* Views */,
+			);
+			path = TranslatedList;
+			sourceTree = "<group>";
+		};
+		933604F724E9ECA2003985B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				933604FA24E9ECCE003985B4 /* TranslatedList.swift */,
+				933604FC24E9F55F003985B4 /* TranslatedListCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		933604F824E9ECAA003985B4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		933604F924E9ECB6003985B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		933604FE24E9F61A003985B4 /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				9336050224E9F969003985B4 /* Translator.swift */,
+				9336050C24EA1E4A003985B4 /* DummyTranslator.swift */,
+				9336050E24EA1E69003985B4 /* OfflineTranslator.swift */,
+			);
+			path = Translator;
+			sourceTree = "<group>";
+		};
+		9336050124E9F94F003985B4 /* MangaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				9336050524E9F97A003985B4 /* Models */,
+				9336050424E9F972003985B4 /* Views */,
+			);
+			path = MangaPicker;
+			sourceTree = "<group>";
+		};
+		9336050424E9F972003985B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9336050624E9FA1C003985B4 /* ImagePicker.swift */,
+				9336050824E9FC7D003985B4 /* MangaPicker.swift */,
+				9336050A24EA166D003985B4 /* ImagePickerButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9336050524E9F97A003985B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +355,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9336050D24EA1E4A003985B4 /* DummyTranslator.swift in Sources */,
 				933604CD24E9EC52003985B4 /* ContentView.swift in Sources */,
+				9336050924E9FC7D003985B4 /* MangaPicker.swift in Sources */,
+				9336050F24EA1E69003985B4 /* OfflineTranslator.swift in Sources */,
+				933604FD24E9F55F003985B4 /* TranslatedListCell.swift in Sources */,
+				9336050324E9F969003985B4 /* Translator.swift in Sources */,
+				9336050724E9FA1C003985B4 /* ImagePicker.swift in Sources */,
+				933604FB24E9ECCE003985B4 /* TranslatedList.swift in Sources */,
 				933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */,
+				9336050B24EA166D003985B4 /* ImagePickerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
