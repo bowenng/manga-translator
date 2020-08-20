@@ -9,5 +9,5 @@ import UIKit
 import Foundation
 
 protocol Translator {
-    func translate(image: UIImage) -> UIImage
+    func translate(image: UIImage, completion: @escaping (Result<UIImage, Error>) -> Void)
 }

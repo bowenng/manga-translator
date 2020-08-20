@@ -10,18 +10,23 @@ import SwiftUI
 struct MangaPicker: View {
     let translator: Translator
     @State private var isImagePickerShowing = false
-    @State private var image: UIImage?
+    @State private var image: UIImage = UIImage(named: "manga")!
     
     var body: some View {
         VStack {
-            if let image = image {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding()
-            }
+            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
+                ImagePreview(image: $image)
+            })
+            
             ImagePickerButton(title: "Select Manga") { image in
-                self.image = translator.translate(image: image)
+                translator.translate(image: image) { result in
+                    switch result {
+                    case .success(let image):
+                        self.image = image
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             }
         }
     }

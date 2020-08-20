@@ -11,7 +11,13 @@ import SwiftUI
 struct MangaTranslatorApp: App {
     var body: some Scene {
         WindowGroup {
-            MangaPicker(translator: OfflineTranslator())
+            MangaPicker(translator: GoogleCloudTranslator())
         }
+    }
+}
+
+struct MangaTranslatorApp_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

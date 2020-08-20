@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 class DummyTranslator: Translator {
-    func translate(image: UIImage) -> UIImage {
-        return image
+    func translate(image: UIImage, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        completion(.success(image))
     }
 }

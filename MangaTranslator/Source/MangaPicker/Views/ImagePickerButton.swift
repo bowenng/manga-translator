@@ -12,7 +12,7 @@ struct ImagePickerButton: View {
     let onImageSelected: (_ image: UIImage) -> ()
     
     @State private var isImagePickerShowing = false
-    @State private var inputImage: UIImage?
+    @State private var selectedImage: UIImage?
     
     var body: some View {
         Button(action: {
@@ -26,10 +26,12 @@ struct ImagePickerButton: View {
         }
         .sheet(isPresented: $isImagePickerShowing,
                onDismiss: {
-                onImageSelected(inputImage!)
-               }) {
-            ImagePicker(image: $inputImage)
-        }
+                guard let selectedImage = selectedImage else { return }
+                onImageSelected(selectedImage)
+               },
+               content: {
+                ImagePicker(image: $selectedImage)
+               })
     }
 }
 
