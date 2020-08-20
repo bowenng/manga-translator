@@ -14,7 +14,6 @@ struct MangaPreview: View {
         Image(uiImage: UIImage(data: image)!)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     }
 }
 

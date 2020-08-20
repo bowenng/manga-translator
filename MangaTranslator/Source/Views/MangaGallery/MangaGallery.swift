@@ -16,19 +16,25 @@ struct MangaGallery: View {
                           GridItem(.flexible())]
     
     var body: some View {
-        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) {
-            LazyVGrid(columns: layout,
-                      alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                ForEach(mangaCollection.mangaPages, id: \.self) { mangaPage in
-                    MangaPreview(image: mangaPage.image)
+            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) {
+                LazyVGrid(columns: layout,
+                          alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                    ForEach(mangaCollection.mangaPages, id: \.self) { mangaPage in
+                        NavigationLink(
+                            destination: MangaDetailedView(image: mangaPage.image)) {
+                            MangaPreview(image: mangaPage.image)
+                        }.buttonStyle(PlainButtonStyle())
+                    }
                 }
             }
-        }
+        
     }
 }
 
 struct MangaGallery_Previews: PreviewProvider {
     static var previews: some View {
-        MangaGallery(mangaCollection:PreviewData().mangaCollections.first!)
+        NavigationView {
+            MangaGallery(mangaCollection:PreviewData().mangaCollections.first!)
+        }
     }
 }
