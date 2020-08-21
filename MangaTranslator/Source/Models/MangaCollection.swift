@@ -7,14 +7,14 @@
 
 import Foundation
 
-class MangaCollection: ObservableObject {
-    @Published var books: [MangaBook] = []
+struct MangaCollection {
+    var books: [MangaBook] = []
     
-    public func append(_ newBook: MangaBook) {
+    public mutating func append(_ newBook: MangaBook) {
         books.append(newBook)
     }
     
-    public func remove(at index: Int) {
+    public mutating func remove(at index: Int) {
         books.remove(at: index)
     }
 }

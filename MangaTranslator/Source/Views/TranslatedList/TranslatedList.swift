@@ -8,19 +8,42 @@
 import SwiftUI
 
 struct TranslatedList: View {
-    @Binding var collection: MangaCollection
+    @ObservedObject var viewModel: TranslatedList.ViewModel
+    
     var body: some View {
         NavigationView {
-            List(collection.books) { mangaCollection in
+            List(viewModel.collection.books) { book in
                 NavigationLink(
-                    destination: MangaGallery(book: mangaCollection)) {
-                    TranslatedListCell(thumbnail: mangaCollection.thumbnail,
-                                       title: mangaCollection.title,
-                                       caption: mangaCollection.caption)
+                    destination: MangaGallery(book: book)) {
+                    TranslatedListCell(thumbnail: book.thumbnail,
+                                       title: book.title,
+                                       caption: book.caption)
                 }
             }
             .navigationBarTitle("Home", displayMode: .inline)
-            .navigationBarItems(trailing: AddBookButton(collection: $collection))
+            .navigationBarItems(trailing: Button(action: {
+                viewModel.addNewBook()
+            }, label: {
+                Text("New Book")
+            }))
+        }
+    }
+    
+    init(collection: MangaCollection) {
+        self.viewModel = TranslatedList.ViewModel(collection: collection)
+    }
+}
+
+extension TranslatedList {
+    class ViewModel: ObservableObject {
+        @Published var collection: MangaCollection
+        
+        init(collection: MangaCollection) {
+            self.collection = collection
+        }
+        
+        func addNewBook() {
+            collection.append(MangaBook(title: "Untitled"))
         }
     }
 }
@@ -41,6 +64,6 @@ extension MangaBook {
 
 struct TranslatedList_Previews: PreviewProvider {
     static var previews: some View {
-        TranslatedList(collection: .constant(PreviewData().mangaCollection))
+        TranslatedList(collection: PreviewData().mangaCollection)
     }
 }

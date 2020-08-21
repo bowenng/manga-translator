@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct PreviewData {
-    let mangaCollection: MangaCollection = MangaCollection()
+    var mangaCollection: MangaCollection = MangaCollection()
     
     init() {
         for _ in 0...5 {
@@ -18,7 +18,7 @@ struct PreviewData {
     }
     
     private static func makeCollection() -> MangaBook {
-        let book = MangaBook(title: "manga")
+        var book = MangaBook(title: "manga")
         for _ in 0...5 {
             book.append(MangaPage(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!, createdTimeStamp: Date()))
         }

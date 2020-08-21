@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-class MangaBook: Identifiable, ObservableObject  {
-    @Published var mangaPages: [MangaPage] = []
-    @Published var title: String
-    @Published var lastViewed: Date
+struct MangaBook: Identifiable {
+    var mangaPages: [MangaPage] = []
+    var title: String
+    var lastViewed: Date
     
     var id = UUID()
     
@@ -20,7 +20,7 @@ class MangaBook: Identifiable, ObservableObject  {
         self.lastViewed = Date()
     }
     
-    public func append(_ page: MangaPage) {
+    public mutating func append(_ page: MangaPage) {
         mangaPages.append(page)
     }
 }
