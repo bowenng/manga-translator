@@ -12,28 +12,20 @@ class GoogleCloudTranslator: Translator {
     
     let url = "https://us-east1-manga-translator-20200817.cloudfunctions.net/manga-translate"
     
-    func translate(image: UIImage, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func translate(image: Data, completion: @escaping (Result<Data?, AFError>) -> Void) {
         AF.upload(multipartFormData: constructFormData(image: image),
                   to: url)
             .validate()
-            .response { response in
-                switch response.result {
-                case .success(let data):
-                    guard let data = data else { print("error"); return }
-                    let decoded_data = Data(base64Encoded: data)!
-                    completion(.success(UIImage(data: decoded_data)!))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-    }
+            .response { completion($0.result) }
     
-    private func constructFormData(image: UIImage) -> (MultipartFormData) -> Void {
-        let jpegData = image.jpegData(compressionQuality: 0.5)
+    }
+    private func constructFormData(image: Data) -> (MultipartFormData) -> Void {
         return { multipartFormData in
-            multipartFormData.append(jpegData!, withName: "manga", fileName: "manga.jpg", mimeType: "image/jpeg")
+            multipartFormData.append(image, withName: "manga", fileName: "manga.jpg", mimeType: "image/jpeg")
         }
     }
-    
-    
 }
+    
+    
+    
+

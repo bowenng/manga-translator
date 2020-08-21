@@ -34,6 +34,7 @@ struct TranslatedListCell: View {
 struct TranslatedListCell_Previews: PreviewProvider {
     static var previews: some View {
         TranslatedListCell(thumbnail: UIImage(systemName: "photo")!,
-                           title: "Title", caption: "2019/02/11").previewLayout(.fixed(width: 300, height: 70))
+                           title: "Title", caption: "2019/02/11")
+            .previewLayout(.fixed(width: 300, height: 70))
     }
 }

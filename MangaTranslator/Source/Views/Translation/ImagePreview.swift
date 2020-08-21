@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImagePreview: View {
-    @Binding var image: UIImage
+    let image: UIImage
     
     var body: some View {
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
@@ -24,6 +24,6 @@ struct ImagePreview: View {
 struct ImagePreview_Previews: PreviewProvider {
     let image = UIImage(systemName: "photo")
     static var previews: some View {
-        ImagePreview(image: .constant(UIImage(named: "manga")!))
+        ImagePreview(image: UIImage(named: "manga")!)
     }
 }

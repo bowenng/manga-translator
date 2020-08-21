@@ -7,16 +7,14 @@
 
 import Foundation
 
-struct MangaCollection: Identifiable  {
-    let mangaPages: [MangaPage]
-    let title: String
-    let createdTimeStamp: Date
+class MangaCollection: ObservableObject {
+    @Published var books: [MangaBook] = []
     
-    var id = UUID()
-}
-
-extension MangaCollection : Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(createdTimeStamp)
+    public func append(_ newBook: MangaBook) {
+        books.append(newBook)
+    }
+    
+    public func remove(at index: Int) {
+        books.remove(at: index)
     }
 }

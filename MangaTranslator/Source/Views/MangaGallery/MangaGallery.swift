@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MangaGallery: View {
     
-    let mangaCollection: MangaCollection
+    let book: MangaBook
     
     private let layout = [GridItem(.flexible()),
                           GridItem(.flexible()),
@@ -19,14 +19,15 @@ struct MangaGallery: View {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) {
                 LazyVGrid(columns: layout,
                           alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                    ForEach(mangaCollection.mangaPages, id: \.self) { mangaPage in
+                    ForEach(book.mangaPages, id: \.self) { mangaPage in
                         NavigationLink(
                             destination: MangaDetailedView(image: mangaPage.image)) {
                             MangaPreview(image: mangaPage.image)
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
-            }
+            }.navigationBarTitle(book.title, displayMode: .inline)
+            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         
     }
 }
@@ -34,7 +35,7 @@ struct MangaGallery: View {
 struct MangaGallery_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MangaGallery(mangaCollection:PreviewData().mangaCollections.first!)
+            MangaGallery(book:PreviewData().mangaCollection.books.first!)
         }
     }
 }

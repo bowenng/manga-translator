@@ -5,11 +5,12 @@
 //  Created by BOWEN WU on 8/16/20.
 //
 
-import UIKit
+import Alamofire
 import Foundation
+import UIKit
 
 class DummyTranslator: Translator {
-    func translate(image: UIImage, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func translate(image: Data, completion: @escaping (Result<Data?, AFError>) -> Void) {
         completion(.success(image))
     }
 }

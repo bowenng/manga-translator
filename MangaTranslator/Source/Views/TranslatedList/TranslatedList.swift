@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct TranslatedList: View {
-    let mangaCollections: [MangaCollection]
+    @Binding var collection: MangaCollection
     var body: some View {
         NavigationView {
-            List(mangaCollections) { mangaCollection in
+            List(collection.books) { mangaCollection in
                 NavigationLink(
-                    destination: MangaGallery(mangaCollection: mangaCollection)) {
+                    destination: MangaGallery(book: mangaCollection)) {
                     TranslatedListCell(thumbnail: mangaCollection.thumbnail,
                                        title: mangaCollection.title,
                                        caption: mangaCollection.caption)
                 }
-            }.navigationTitle("Manga Collection")
+            }
+            .navigationBarTitle("Home", displayMode: .inline)
+            .navigationBarItems(trailing: AddBookButton(collection: $collection))
         }
     }
 }
 
-extension MangaCollection {
+extension MangaBook {
     var thumbnail: UIImage {
         return mangaPages.isEmpty ? UIImage(systemName: "photo")! : UIImage(data: mangaPages.first!.image)!
     }
@@ -33,12 +35,12 @@ extension MangaCollection {
         let dateFormatter = DateFormatter()
         let dateFormat = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: Locale.current)
         dateFormatter.dateFormat = dateFormat
-        return dateFormatter.string(from: createdTimeStamp)
+        return dateFormatter.string(from: lastViewed)
     }
 }
 
 struct TranslatedList_Previews: PreviewProvider {
     static var previews: some View {
-        TranslatedList(mangaCollections: PreviewData().mangaCollections)
+        TranslatedList(collection: .constant(PreviewData().mangaCollection))
     }
 }

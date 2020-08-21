@@ -9,7 +9,6 @@ import Foundation
 
 struct MangaPage: Codable, Identifiable {
     let image: Data
-    let title: String
     let createdTimeStamp: Date
     
     var id = UUID()
