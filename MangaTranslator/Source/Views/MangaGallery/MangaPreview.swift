@@ -13,7 +13,9 @@ struct MangaPreview: View {
     var body: some View {
         Image(uiImage: UIImage(data: image)!)
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .aspectRatio(contentMode: .fill)
+            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 200, alignment: .center)
+            .clipped()
     }
 }
 
