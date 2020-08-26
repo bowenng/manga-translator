@@ -51,7 +51,7 @@ struct Translation: View {
         }
     }
     
-    init(book: MangaBook,
+    init(book: Book,
          onSaveImage: @escaping (Data) -> Void) {
         self.viewModel = Translation.ViewModel(book: book,
                                                onSaveImage: onSaveImage)
@@ -62,13 +62,13 @@ extension Translation {
     class ViewModel: ObservableObject {
         
         @Published var manga: UIImage
-        @Published var book: MangaBook
+        @Published var book: Book
         
         private let onSaveImage: (Data) -> Void
         private let translator: Translator
 
         
-        init(book: MangaBook,
+        init(book: Book,
              onSaveImage: @escaping (Data) -> Void) {
             self.book = book
             self.onSaveImage = onSaveImage
@@ -107,7 +107,7 @@ extension Translation {
 
 struct Translation_Previews: PreviewProvider {
     static var previews: some View {
-        Translation(book: PreviewData().mangaCollection.books.first!) { _ in
+        Translation(book: PreviewData().shelf.books.first!) { _ in
             
         }
     }

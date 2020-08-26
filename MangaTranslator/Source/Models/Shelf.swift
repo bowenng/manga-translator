@@ -1,5 +1,5 @@
 //
-//  MangaCollection.swift
+//  Shelf.swift
 //  MangaTranslator
 //
 //  Created by BOWEN WU on 8/20/20.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct MangaCollection {
-    var books: [MangaBook] = []
+struct Shelf {
+    var books: [Book] = []
     
-    public mutating func append(_ newBook: MangaBook) {
+    public mutating func append(_ newBook: Book) {
         books.append(newBook)
     }
     

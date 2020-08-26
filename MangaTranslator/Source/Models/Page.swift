@@ -1,5 +1,5 @@
 //
-//  MangaPage.swift
+//  Page.swift
 //  MangaTranslator
 //
 //  Created by BOWEN WU on 8/20/20.

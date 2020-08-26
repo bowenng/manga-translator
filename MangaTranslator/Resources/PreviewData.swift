@@ -9,18 +9,18 @@ import Foundation
 import UIKit
 
 struct PreviewData {
-    var mangaCollection: MangaCollection = MangaCollection()
+    var shelf: Shelf = Shelf()
     
     init() {
         for _ in 0...5 {
-            mangaCollection.append(PreviewData.makeCollection())
+            shelf.append(PreviewData.makeShelf())
         }
     }
     
-    private static func makeCollection() -> MangaBook {
-        var book = MangaBook(title: "manga")
+    private static func makeShelf() -> Book {
+        var book = Book(title: "manga")
         for _ in 0...5 {
-            book.append(MangaPage(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!, createdTimeStamp: Date()))
+            book.append(Page(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!, createdTimeStamp: Date()))
         }
         return book
     }
