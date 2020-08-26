@@ -120,6 +120,7 @@
 				931FC17A24F6DAB000E3F20F /* Gallery.swift */,
 				931FC17C24F6DAC500E3F20F /* Preview.swift */,
 				931FC17E24F6EBE300E3F20F /* FullScreenView.swift */,
+				9336050624E9FA1C003985B4 /* ImagePicker.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -237,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				93C7D34B24EF3163002591B4 /* Translation.swift */,
-				9336050624E9FA1C003985B4 /* ImagePicker.swift */,
 				93C7D32B24EE11C4002591B4 /* ImagePreview.swift */,
 			);
 			path = Translation;
