@@ -15,11 +15,10 @@ struct ShelfView: View {
             Gallery<Book, BookView>(items: viewModel.books,
                                    toDestination: viewModel.toDestination,
                                    numberOfPreviewsPerRow: 2,
-                                   previewSize: (width: 250, height: 250))
+                                   numberOfPreviewsPerScreen: 3)
                 .navigationBarTitle("Home", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: { viewModel.addNewBook() },
                                                      label: { Text("Add Book")}))
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         }
     }
     

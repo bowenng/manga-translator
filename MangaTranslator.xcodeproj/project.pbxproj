@@ -20,7 +20,6 @@
 		9336050D24EA1E4A003985B4 /* DummyTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336050C24EA1E4A003985B4 /* DummyTranslator.swift */; };
 		93403A4424EA298F00C4BF54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93403A4324EA298F00C4BF54 /* Preview Assets.xcassets */; };
 		93C7D32824EDC5A6002591B4 /* GoogleCloudTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7D32724EDC5A5002591B4 /* GoogleCloudTranslator.swift */; };
-		93C7D32C24EE11C4002591B4 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7D32B24EE11C4002591B4 /* ImagePreview.swift */; };
 		93C7D32E24EF0329002591B4 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7D32D24EF0329002591B4 /* Page.swift */; };
 		93C7D33024EF045C002591B4 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7D32F24EF045C002591B4 /* Book.swift */; };
 		93C7D33624EF0CA9002591B4 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7D33524EF0CA9002591B4 /* BookView.swift */; };
@@ -70,7 +69,6 @@
 		9336050C24EA1E4A003985B4 /* DummyTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTranslator.swift; sourceTree = "<group>"; };
 		93403A4324EA298F00C4BF54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93C7D32724EDC5A5002591B4 /* GoogleCloudTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCloudTranslator.swift; sourceTree = "<group>"; };
-		93C7D32B24EE11C4002591B4 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		93C7D32D24EF0329002591B4 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		93C7D32F24EF045C002591B4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		93C7D33524EF0CA9002591B4 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				93C7D34B24EF3163002591B4 /* Translation.swift */,
-				93C7D32B24EE11C4002591B4 /* ImagePreview.swift */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				93C7D33824EF13A1002591B4 /* PreviewData.swift in Sources */,
 				93C7D33624EF0CA9002591B4 /* BookView.swift in Sources */,
 				93C7D33024EF045C002591B4 /* Book.swift in Sources */,
-				93C7D32C24EE11C4002591B4 /* ImagePreview.swift in Sources */,
 				9336050324E9F969003985B4 /* Translator.swift in Sources */,
 				9336050724E9FA1C003985B4 /* ImagePicker.swift in Sources */,
 				931FC17F24F6EBE300E3F20F /* FullScreenView.swift in Sources */,

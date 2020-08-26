@@ -15,7 +15,7 @@ struct Translation: View {
     
     var body: some View {
         VStack {
-            ImagePreview(image: viewModel.manga)
+            FullScreenView(image: viewModel.manga)
             
             // Pick Image Button
             Button(action: {

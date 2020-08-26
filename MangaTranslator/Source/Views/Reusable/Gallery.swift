@@ -20,7 +20,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                         NavigationLink(
                             destination: viewModel.toDestination(item)) {
                             Preview(image: item.preview,
-                                    previewSize: viewModel.previewSize)
+                                    config: viewModel.previewConfig)
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
@@ -30,12 +30,34 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
     public init(items: [ItemType],
                 toDestination: @escaping (_ item: ItemType) -> DetailedView,
                 numberOfPreviewsPerRow: Int,
-                previewSize: (width: CGFloat, height: CGFloat)) {
+                numberOfPreviewsPerScreen: Int,
+                previewCornerRadiusSize: CGFloat = 5.0,
+                previewPaddingSize: CGFloat = 5.0) {
+        
+        
+        let previewConfig = Self.makePreviewConfig(numberOfPreviewsPerRow: numberOfPreviewsPerRow,
+                                              numberOfPreviewsPerFrame: numberOfPreviewsPerScreen,
+                                              previewCornerRadiusSize: previewCornerRadiusSize,
+                                              previewPaddingSize: previewPaddingSize)
         viewModel = Gallery.ViewModel(items: items,
                                       toDestination: toDestination,
-                                      previewSize: previewSize)
+                                      previewConfig: previewConfig)
         layout = Array(repeating: GridItem(.flexible()),
                        count: numberOfPreviewsPerRow)
+    }
+    
+    
+    // MARK: - Helpers
+    private static func makePreviewConfig(numberOfPreviewsPerRow: Int,
+                                   numberOfPreviewsPerFrame: Int,
+                                   previewCornerRadiusSize: CGFloat,
+                                   previewPaddingSize: CGFloat) -> Preview.Config {
+        let width: CGFloat = UIScreen.main.bounds.width / CGFloat(numberOfPreviewsPerRow) - 2 * previewPaddingSize
+        let height: CGFloat = UIScreen.main.bounds.height / CGFloat(numberOfPreviewsPerFrame) - 2 * previewPaddingSize
+        let previewSize: (width: CGFloat, height: CGFloat) = (width: width, height: height)
+        return Preview.Config(previewSize: previewSize,
+                              cornerRadiusSize: previewCornerRadiusSize,
+                              paddingSize: previewPaddingSize)
     }
 }
 
@@ -45,14 +67,14 @@ extension Gallery {
         let items: [ItemType]
         /// A function that transforms an item into a detailed view that will be presented when a preview is clicked
         let toDestination: (_ item: ItemType) -> DetailedView
-        let previewSize: (width: CGFloat, height: CGFloat)
+        let previewConfig: Preview.Config
         
         public init(items: [ItemType],
                     toDestination: @escaping (_ item: ItemType) -> DetailedView,
-                    previewSize: (width: CGFloat, height: CGFloat)) {
+                    previewConfig: Preview.Config) {
             self.items = items
             self.toDestination = toDestination
-            self.previewSize = previewSize
+            self.previewConfig = previewConfig
         }
     }
 }
@@ -65,10 +87,9 @@ struct Gallery_Previews: PreviewProvider {
     static let items: [Page] = PreviewData().shelf.books.first!.pages
     static var previews: some View {
         NavigationView {
-            Gallery<Page, Preview>(items: items,
-                                   toDestination: {Preview(image: $0.preview, previewSize: (width: 100, height: 200))},
-                                        numberOfPreviewsPerRow: 3,
-                                        previewSize: (width: 100, height: 200))
+            Gallery<Page, FullScreenView>(items: items,
+                                   toDestination: {FullScreenView(image: $0.preview)},
+                                   numberOfPreviewsPerRow: 2, numberOfPreviewsPerScreen: 2)
         }
     }
 }

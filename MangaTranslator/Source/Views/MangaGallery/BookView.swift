@@ -14,8 +14,8 @@ struct BookView: View {
     var body: some View {
         Gallery<Page, FullScreenView>(items: viewModel.pages,
                                     toDestination: viewModel.toDestination,
-                                    numberOfPreviewsPerRow: 3,
-                                    previewSize: (width: 100, height: 200))
+                                    numberOfPreviewsPerRow: 2,
+                                    numberOfPreviewsPerScreen: 3)
             .navigationBarTitle(viewModel.title, displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 isAddPageViewShowing = true
