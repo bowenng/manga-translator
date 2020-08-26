@@ -19,6 +19,7 @@ struct Preview: View {
             .clipped()
             .cornerRadius(config.cornerRadiusSize)
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, config.paddingSize)
+            .shadow(radius: config.shadowRadiusSize)
     }
     
     public init(image: UIImage,
@@ -33,12 +34,13 @@ extension Preview {
         let previewSize: (width: CGFloat, height: CGFloat)
         let cornerRadiusSize: CGFloat
         let paddingSize: CGFloat
+        let shadowRadiusSize: CGFloat
     }
 }
 
 struct Preview_Previews: PreviewProvider {
     static var previews: some View {
         Preview(image: UIImage(named: "manga")!,
-                config: Preview.Config(previewSize: (width: 200, height: 200), cornerRadiusSize: 5.0, paddingSize: 5.0))
+                config: Preview.Config(previewSize: (width: 200, height: 200), cornerRadiusSize: 5.0, paddingSize: 5.0, shadowRadiusSize: 5.0))
     }
 }

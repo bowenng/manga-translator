@@ -11,6 +11,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
     @ObservedObject var viewModel: Gallery.ViewModel
     
     private let layout: [GridItem]
+    private let outerPaddingSize: CGFloat
     
     var body: some View {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) {
@@ -24,6 +25,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
+                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, outerPaddingSize)
             }
     }
     
@@ -32,18 +34,21 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                 numberOfPreviewsPerRow: Int,
                 numberOfPreviewsPerScreen: Int,
                 previewCornerRadiusSize: CGFloat = 5.0,
-                previewPaddingSize: CGFloat = 5.0) {
+                previewPaddingSize: CGFloat = 3.0,
+                previewShadowRadiusSize: CGFloat = 3.0) {
         
         
         let previewConfig = Self.makePreviewConfig(numberOfPreviewsPerRow: numberOfPreviewsPerRow,
                                               numberOfPreviewsPerFrame: numberOfPreviewsPerScreen,
                                               previewCornerRadiusSize: previewCornerRadiusSize,
-                                              previewPaddingSize: previewPaddingSize)
+                                              previewPaddingSize: previewPaddingSize,
+                                              previewShadowRadiusSize: previewShadowRadiusSize)
         viewModel = Gallery.ViewModel(items: items,
                                       toDestination: toDestination,
                                       previewConfig: previewConfig)
         layout = Array(repeating: GridItem(.flexible()),
                        count: numberOfPreviewsPerRow)
+        outerPaddingSize = previewPaddingSize
     }
     
     
@@ -51,13 +56,15 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
     private static func makePreviewConfig(numberOfPreviewsPerRow: Int,
                                    numberOfPreviewsPerFrame: Int,
                                    previewCornerRadiusSize: CGFloat,
-                                   previewPaddingSize: CGFloat) -> Preview.Config {
+                                   previewPaddingSize: CGFloat,
+                                   previewShadowRadiusSize: CGFloat) -> Preview.Config {
         let width: CGFloat = UIScreen.main.bounds.width / CGFloat(numberOfPreviewsPerRow) - 2 * previewPaddingSize
         let height: CGFloat = UIScreen.main.bounds.height / CGFloat(numberOfPreviewsPerFrame) - 2 * previewPaddingSize
         let previewSize: (width: CGFloat, height: CGFloat) = (width: width, height: height)
         return Preview.Config(previewSize: previewSize,
                               cornerRadiusSize: previewCornerRadiusSize,
-                              paddingSize: previewPaddingSize)
+                              paddingSize: previewPaddingSize,
+                              shadowRadiusSize: previewShadowRadiusSize)
     }
 }
 
