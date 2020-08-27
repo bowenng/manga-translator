@@ -10,8 +10,7 @@ import UIKit
 
 struct Page: Codable, Identifiable {
     let image: Data
-    let createdTimeStamp: Date
-    
+    var createdTimeStamp: Date = Date()
     var id = UUID()
 }
 

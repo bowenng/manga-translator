@@ -58,7 +58,7 @@ extension BookView: BookViewModel {
     }
     
     func saveImage(image: Data) {
-        shelf.append(Page(image: image, createdTimeStamp: Date()), toBook: bookIndex)
+        shelf.append(Page(image: image), toBook: bookIndex)
     }
     
     func toDestination(itemIndex: Int) -> FullScreenView {

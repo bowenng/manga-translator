@@ -20,7 +20,7 @@ struct PreviewData {
     private static func makeShelf() -> Book {
         var book = Book(title: "manga")
         for _ in 0...5 {
-            book.append(Page(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!, createdTimeStamp: Date()))
+            book.append(Page(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!))
         }
         return book
     }

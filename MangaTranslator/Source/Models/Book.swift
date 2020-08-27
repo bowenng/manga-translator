@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Book: Identifiable {
+struct Book: Identifiable, Codable {
     var pages: [Page] = []
     var title: String
     var lastViewed: Date
