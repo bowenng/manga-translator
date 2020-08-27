@@ -35,7 +35,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                 numberOfPreviewsPerRow: Int,
                 numberOfPreviewsPerScreen: Int,
                 previewCornerRadiusSize: CGFloat = 5.0,
-                previewPaddingSize: CGFloat = 3.0,
+                previewPaddingSize: CGFloat = 6.0,
                 previewShadowRadiusSize: CGFloat = 3.0) {
         
         

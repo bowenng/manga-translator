@@ -25,7 +25,6 @@ struct BookView: View {
                                                  label: {
                 Text("New")
             }))
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 5)
             .sheet(isPresented: $isAddPageViewShowing,
                    onDismiss: {}) {
                 Translation(onSaveImage: { image in
