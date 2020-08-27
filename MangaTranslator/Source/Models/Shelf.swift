@@ -7,14 +7,19 @@
 
 import Foundation
 
-struct Shelf {
-    var books: [Book] = []
+class Shelf: ObservableObject {
+    @Published var books: [Book] = []
     
-    public mutating func append(_ newBook: Book) {
+    public func append(_ newBook: Book) {
         books.append(newBook)
     }
     
-    public mutating func remove(at index: Int) {
+    public func remove(at index: Int) {
         books.remove(at: index)
+    }
+    
+    public func append(_ newPage: Page, toBook index: Int) {
+        objectWillChange.send()
+        books[index].append(newPage)
     }
 }

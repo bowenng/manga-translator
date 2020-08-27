@@ -17,9 +17,10 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) {
                 LazyVGrid(columns: layout,
                           alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                    ForEach(viewModel.items, id: \.self) { item in
+                    ForEach(viewModel.items.indices, id: \.self) { index in
+                        let item = viewModel.items[index]
                         NavigationLink(
-                            destination: viewModel.toDestination(item)) {
+                            destination: viewModel.toDestination(index)) {
                             Preview(image: item.preview,
                                     config: viewModel.previewConfig)
                         }.buttonStyle(PlainButtonStyle())
@@ -30,7 +31,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
     }
     
     public init(items: [ItemType],
-                toDestination: @escaping (_ item: ItemType) -> DetailedView,
+                toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
                 numberOfPreviewsPerRow: Int,
                 numberOfPreviewsPerScreen: Int,
                 previewCornerRadiusSize: CGFloat = 5.0,
@@ -73,11 +74,11 @@ extension Gallery {
         /// A list of items being displayed in the gallery
         let items: [ItemType]
         /// A function that transforms an item into a detailed view that will be presented when a preview is clicked
-        let toDestination: (_ item: ItemType) -> DetailedView
+        let toDestination: (_ itemIndex: Int) -> DetailedView
         let previewConfig: Preview.Config
         
         public init(items: [ItemType],
-                    toDestination: @escaping (_ item: ItemType) -> DetailedView,
+                    toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
                     previewConfig: Preview.Config) {
             self.items = items
             self.toDestination = toDestination
@@ -95,7 +96,7 @@ struct Gallery_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Gallery<Page, FullScreenView>(items: items,
-                                   toDestination: {FullScreenView(image: $0.preview)},
+                                   toDestination: {FullScreenView(image: items[$0].preview)},
                                    numberOfPreviewsPerRow: 2, numberOfPreviewsPerScreen: 2)
         }
     }

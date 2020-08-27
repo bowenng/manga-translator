@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct BookView: View {
+    
+    // MARK: - View
+    
     @State var isAddPageViewShowing: Bool = false
-    @ObservedObject var viewModel: BookView.ViewModel
     
     var body: some View {
-        Gallery<Page, FullScreenView>(items: viewModel.pages,
-                                    toDestination: viewModel.toDestination,
+        Gallery<Page, FullScreenView>(items: pages,
+                                    toDestination: toDestination,
                                     numberOfPreviewsPerRow: 2,
                                     numberOfPreviewsPerScreen: 3)
-            .navigationBarTitle(viewModel.title, displayMode: .inline)
+            .navigationBarTitle(title, displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 isAddPageViewShowing = true
             },
@@ -26,48 +28,48 @@ struct BookView: View {
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 5)
             .sheet(isPresented: $isAddPageViewShowing,
                    onDismiss: {}) {
-                Translation(book: viewModel.book, onSaveImage: { image in
-                    viewModel.saveImage(image: image)
+                Translation(onSaveImage: { image in
+                    saveImage(image: image)
                     isAddPageViewShowing = false
                 })
             }
     }
     
-    init(book: Book) {
-        self.viewModel = BookView.ViewModel(book: book)
-    }
+    // MARK: - ViewModel
+
+    @EnvironmentObject var shelf: Shelf
+    let bookIndex: Int
 }
 
-extension BookView {
-    class ViewModel: ObservableObject {
-        @Published var book: Book
-        
-        var title: String {
-            return book.title
-        }
-        
-        var pages: [Page] {
-            return book.pages
-        }
-        
-        init(book: Book) {
-            self.book = book
-        }
-        
-        func saveImage(image: Data) {
-            book.append(Page(image: image, createdTimeStamp: Date()))
-        }
-        
-        func toDestination(item: Page) -> FullScreenView {
-            return FullScreenView (image: item.preview)
-        }
+protocol BookViewModel {
+    var title: String { get }
+    var pages: [Page] { get }
+    func saveImage(image: Data)
+    func toDestination(itemIndex: Int) -> FullScreenView
+}
+
+extension BookView: BookViewModel {
+    var title: String {
+        return shelf.books[bookIndex].title
+    }
+    
+    var pages: [Page] {
+        return shelf.books[bookIndex].pages
+    }
+    
+    func saveImage(image: Data) {
+        shelf.append(Page(image: image, createdTimeStamp: Date()), toBook: bookIndex)
+    }
+    
+    func toDestination(itemIndex: Int) -> FullScreenView {
+        return FullScreenView (image: pages[itemIndex].preview)
     }
 }
 
 struct MangaGallery_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BookView(book:PreviewData().shelf.books.first!)
-        }
+            BookView(bookIndex: 0)
+        }.environmentObject(Shelf())
     }
 }

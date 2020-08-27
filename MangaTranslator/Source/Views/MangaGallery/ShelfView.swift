@@ -8,43 +8,39 @@
 import SwiftUI
 
 struct ShelfView: View {
-    @ObservedObject var viewModel: ShelfView.ViewModel
+    
+    // MARK: - ViewModel
+    @EnvironmentObject var shelf: Shelf
     
     var body: some View {
         NavigationView {
-            Gallery<Book, BookView>(items: viewModel.books,
-                                   toDestination: viewModel.toDestination,
+            Gallery<Book, BookView>(items: books,
+                                   toDestination: toDestination,
                                    numberOfPreviewsPerRow: 2,
                                    numberOfPreviewsPerScreen: 3)
                 .navigationBarTitle("Home", displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: { viewModel.addNewBook() },
+                .navigationBarItems(trailing: Button(action: { addNewBook() },
                                                      label: { Text("Add Book")}))
         }
     }
-    
-    init(shelf: Shelf) {
-        self.viewModel = ShelfView.ViewModel(shelf: shelf)
-    }
 }
 
-extension ShelfView {
-    class ViewModel: ObservableObject {
-        @Published var shelf: Shelf
-        var books: [Book] {
-            return shelf.books
-        }
-        
-        init(shelf: Shelf) {
-            self.shelf = shelf
-        }
-        
-        func addNewBook() {
-            shelf.append(Book(title: "Untitled"))
-        }
-        
-        func toDestination(item: Book) -> BookView {
-            return BookView(book: item)
-        }
+protocol ShelfViewModel {
+    func addNewBook()
+    func toDestination(itemIndex: Int) -> BookView
+}
+
+extension ShelfView: ShelfViewModel {
+    var books: [Book] {
+        return shelf.books
+    }
+    
+    func addNewBook() {
+        shelf.append(Book(title: "Untitled"))
+    }
+    
+    func toDestination(itemIndex: Int) -> BookView {
+        return BookView(bookIndex: itemIndex)
     }
 }
 
@@ -64,6 +60,6 @@ extension Book {
 
 struct ShelfView_Previews: PreviewProvider {
     static var previews: some View {
-        ShelfView(shelf: PreviewData().shelf)
+        ShelfView().environmentObject(Shelf())
     }
 }

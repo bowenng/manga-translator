@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct MangaTranslatorApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ShelfView(shelf: Shelf())
+            ShelfView().environmentObject(Shelf())
         }
     }
 }
