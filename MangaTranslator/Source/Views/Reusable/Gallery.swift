@@ -23,6 +23,17 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                             destination: viewModel.toDestination(index)) {
                             Preview(image: item.preview,
                                     config: viewModel.previewConfig)
+                                .contextMenu {
+                                    ForEach(viewModel.makeContextMenuViewData(index)) { buttonViewData in
+                                        Button(action: buttonViewData.action) {
+                                            HStack {
+                                                Image(systemName: buttonViewData.iconSystemName)
+                                                Text(buttonViewData.title)
+                                            }
+                                        }
+                                    }
+                                    
+                                }
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
@@ -34,6 +45,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                 toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
                 numberOfPreviewsPerRow: Int,
                 numberOfPreviewsPerScreen: Int,
+                makeContextMenuViewData: @escaping (Int) -> [ContextMenuItemViewData] = { _ in [] },
                 previewCornerRadiusSize: CGFloat = 5.0,
                 previewPaddingSize: CGFloat = 6.0,
                 previewShadowRadiusSize: CGFloat = 3.0) {
@@ -46,7 +58,8 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                                               previewShadowRadiusSize: previewShadowRadiusSize)
         viewModel = Gallery.ViewModel(items: items,
                                       toDestination: toDestination,
-                                      previewConfig: previewConfig)
+                                      previewConfig: previewConfig,
+                                      makeContextMenuViewData: makeContextMenuViewData)
         layout = Array(repeating: GridItem(.flexible()),
                        count: numberOfPreviewsPerRow)
         outerPaddingSize = previewPaddingSize
@@ -76,13 +89,16 @@ extension Gallery {
         /// A function that transforms an item into a detailed view that will be presented when a preview is clicked
         let toDestination: (_ itemIndex: Int) -> DetailedView
         let previewConfig: Preview.Config
+        let makeContextMenuViewData: (Int) -> [ContextMenuItemViewData]
         
         public init(items: [ItemType],
                     toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
-                    previewConfig: Preview.Config) {
+                    previewConfig: Preview.Config,
+                    makeContextMenuViewData: @escaping (Int) -> [ContextMenuItemViewData]) {
             self.items = items
             self.toDestination = toDestination
             self.previewConfig = previewConfig
+            self.makeContextMenuViewData = makeContextMenuViewData
         }
     }
 }
@@ -97,7 +113,9 @@ struct Gallery_Previews: PreviewProvider {
         NavigationView {
             Gallery<Page, FullScreenView>(items: items,
                                    toDestination: {FullScreenView(image: items[$0].preview)},
-                                   numberOfPreviewsPerRow: 2, numberOfPreviewsPerScreen: 2)
+                                   numberOfPreviewsPerRow: 2,
+                                   numberOfPreviewsPerScreen: 2,
+                                   makeContextMenuViewData: { _ in return [] })
         }
     }
 }

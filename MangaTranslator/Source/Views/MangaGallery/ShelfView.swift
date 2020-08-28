@@ -17,7 +17,8 @@ struct ShelfView: View {
             Gallery<Book, BookView>(items: books,
                                    toDestination: toDestination,
                                    numberOfPreviewsPerRow: 2,
-                                   numberOfPreviewsPerScreen: 3)
+                                   numberOfPreviewsPerScreen: 3,
+                                   makeContextMenuViewData: { _ in return [] })
                 .navigationBarTitle("Home", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: { addNewBook() },
                                                      label: { Text("Add Book")}))

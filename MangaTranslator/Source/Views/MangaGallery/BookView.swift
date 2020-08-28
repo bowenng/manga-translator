@@ -17,7 +17,8 @@ struct BookView: View {
         Gallery<Page, FullScreenView>(items: pages,
                                     toDestination: toDestination,
                                     numberOfPreviewsPerRow: 2,
-                                    numberOfPreviewsPerScreen: 3)
+                                    numberOfPreviewsPerScreen: 3,
+                                    makeContextMenuViewData: makeContextMenuViewData)
             .navigationBarTitle(title, displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 isAddPageViewShowing = true
@@ -45,9 +46,17 @@ protocol BookViewModel {
     var pages: [Page] { get }
     func saveImage(image: Data)
     func toDestination(itemIndex: Int) -> FullScreenView
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuItemViewData]
 }
 
 extension BookView: BookViewModel {
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuItemViewData] {
+        return [
+            ContextMenuItemViewData(title: "Rename", iconSystemName: "pencil", action: { self.shelf.remove(pageAtIndex: itemIndex, forBook: bookIndex) }, type: .default),
+            ContextMenuItemViewData(title: "Delete", iconSystemName: "trash", action: {}, type: .destructive)
+        ]
+    }
+    
     var title: String {
         return shelf.books[bookIndex].title
     }

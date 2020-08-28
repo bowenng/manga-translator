@@ -23,6 +23,10 @@ struct Book: Identifiable, Codable {
     public mutating func append(_ page: Page) {
         pages.append(page)
     }
+    
+    public mutating func remove(pageAtIndex index: Int) {
+        pages.remove(at: index)
+    }
 }
 
 extension Book: Hashable {

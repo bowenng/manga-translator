@@ -22,4 +22,9 @@ class Shelf: ObservableObject {
         objectWillChange.send()
         books[index].append(newPage)
     }
+    
+    public func remove(pageAtIndex pageIndex: Int, forBook bookIndex: Int) {
+        objectWillChange.send()
+        books[bookIndex].remove(pageAtIndex: pageIndex)
+    }
 }
