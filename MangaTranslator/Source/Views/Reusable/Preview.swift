@@ -16,14 +16,14 @@ struct Preview: View {
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: config.previewSize.width, height: config.previewSize.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .cornerRadius(config.cornerRadiusSize)
-            .shadow(radius: config.shadowRadiusSize)
             .contextMenu {
                 ForEach(options) { option in
                     ContextMenuButton(viewData: option)
                 }
             }
+            .frame(width: config.previewSize.width, height: config.previewSize.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .cornerRadius(config.cornerRadiusSize)
+            .shadow(radius: config.shadowRadiusSize)
     }
     
     public init(image: UIImage,
