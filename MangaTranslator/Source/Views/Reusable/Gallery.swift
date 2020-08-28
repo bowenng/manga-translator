@@ -22,18 +22,8 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                         NavigationLink(
                             destination: viewModel.toDestination(index)) {
                             Preview(image: item.preview,
-                                    config: viewModel.previewConfig)
-                                .contextMenu {
-                                    ForEach(viewModel.makeContextMenuViewData(index)) { buttonViewData in
-                                        Button(action: buttonViewData.action) {
-                                            HStack {
-                                                Image(systemName: buttonViewData.iconSystemName)
-                                                Text(buttonViewData.title)
-                                            }
-                                        }
-                                    }
-                                    
-                                }
+                                    config: viewModel.previewConfig,
+                                    options: viewModel.makeContextMenuViewData(index))
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
@@ -45,7 +35,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                 toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
                 numberOfPreviewsPerRow: Int,
                 numberOfPreviewsPerScreen: Int,
-                makeContextMenuViewData: @escaping (Int) -> [ContextMenuItemViewData] = { _ in [] },
+                makeContextMenuViewData: @escaping (Int) -> [ContextMenuButtonViewData] = { _ in [] },
                 previewCornerRadiusSize: CGFloat = 5.0,
                 previewPaddingSize: CGFloat = 6.0,
                 previewShadowRadiusSize: CGFloat = 3.0) {
@@ -89,12 +79,12 @@ extension Gallery {
         /// A function that transforms an item into a detailed view that will be presented when a preview is clicked
         let toDestination: (_ itemIndex: Int) -> DetailedView
         let previewConfig: Preview.Config
-        let makeContextMenuViewData: (Int) -> [ContextMenuItemViewData]
+        let makeContextMenuViewData: (Int) -> [ContextMenuButtonViewData]
         
         public init(items: [ItemType],
                     toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
                     previewConfig: Preview.Config,
-                    makeContextMenuViewData: @escaping (Int) -> [ContextMenuItemViewData]) {
+                    makeContextMenuViewData: @escaping (Int) -> [ContextMenuButtonViewData]) {
             self.items = items
             self.toDestination = toDestination
             self.previewConfig = previewConfig

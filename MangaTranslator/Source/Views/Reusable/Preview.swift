@@ -10,22 +10,28 @@ import SwiftUI
 struct Preview: View {
     let image: UIImage
     let config: Preview.Config
+    let options: [ContextMenuButtonViewData]
     
     var body: some View {
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: config.previewSize.width, height: config.previewSize.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .clipped()
             .cornerRadius(config.cornerRadiusSize)
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, config.paddingSize)
             .shadow(radius: config.shadowRadiusSize)
+            .contextMenu {
+                ForEach(options) { option in
+                    ContextMenuButton(viewData: option)
+                }
+            }
     }
     
     public init(image: UIImage,
-                config: Preview.Config) {
+                config: Preview.Config,
+                options: [ContextMenuButtonViewData] = []) {
         self.image = image
         self.config = config
+        self.options = options
     }
 }
 

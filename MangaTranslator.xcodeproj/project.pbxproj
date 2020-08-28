@@ -12,6 +12,7 @@
 		931FC17F24F6EBE300E3F20F /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC17E24F6EBE300E3F20F /* FullScreenView.swift */; };
 		931FC18124F6EE1C00E3F20F /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC18024F6EE1C00E3F20F /* ShelfView.swift */; };
 		931FC18724F894CE00E3F20F /* ContextMenuButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC18624F894CE00E3F20F /* ContextMenuButtonViewData.swift */; };
+		931FC18924F9563F00E3F20F /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC18824F9563F00E3F20F /* ContextMenuButton.swift */; };
 		933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */; };
 		933604CF24E9EC54003985B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604CE24E9EC54003985B4 /* Assets.xcassets */; };
 		933604DD24E9EC54003985B4 /* MangaTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */; };
@@ -56,6 +57,7 @@
 		931FC17E24F6EBE300E3F20F /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
 		931FC18024F6EE1C00E3F20F /* ShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 		931FC18624F894CE00E3F20F /* ContextMenuButtonViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButtonViewData.swift; sourceTree = "<group>"; };
+		931FC18824F9563F00E3F20F /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
 		933604C724E9EC52003985B4 /* MangaTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorApp.swift; sourceTree = "<group>"; };
 		933604CE24E9EC54003985B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				931FC17C24F6DAC500E3F20F /* Preview.swift */,
 				931FC17E24F6EBE300E3F20F /* FullScreenView.swift */,
 				9336050624E9FA1C003985B4 /* ImagePicker.swift */,
+				931FC18824F9563F00E3F20F /* ContextMenuButton.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				931FC17B24F6DAB000E3F20F /* Gallery.swift in Sources */,
 				93C7D32824EDC5A6002591B4 /* GoogleCloudTranslator.swift in Sources */,
 				9336050D24EA1E4A003985B4 /* DummyTranslator.swift in Sources */,
+				931FC18924F9563F00E3F20F /* ContextMenuButton.swift in Sources */,
 				931FC18124F6EE1C00E3F20F /* ShelfView.swift in Sources */,
 				93C7D33824EF13A1002591B4 /* PreviewData.swift in Sources */,
 				931FC18724F894CE00E3F20F /* ContextMenuButtonViewData.swift in Sources */,

@@ -46,14 +46,14 @@ protocol BookViewModel {
     var pages: [Page] { get }
     func saveImage(image: Data)
     func toDestination(itemIndex: Int) -> FullScreenView
-    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuItemViewData]
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData]
 }
 
 extension BookView: BookViewModel {
-    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuItemViewData] {
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData] {
         return [
-            ContextMenuItemViewData(title: "Rename", iconSystemName: "pencil", action: { self.shelf.remove(pageAtIndex: itemIndex, forBook: bookIndex) }, type: .default),
-            ContextMenuItemViewData(title: "Delete", iconSystemName: "trash", action: {}, type: .destructive)
+            ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { self.shelf.remove(pageAtIndex: itemIndex, forBook: bookIndex) }, type: .default),
+            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: {}, type: .destructive)
         ]
     }
     

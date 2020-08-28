@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ContextMenuItemViewData: Identifiable {
+struct ContextMenuButtonViewData: Identifiable {
     let title: String
     let iconSystemName: String
     let action: () -> Void
@@ -21,8 +21,8 @@ struct ContextMenuItemViewData: Identifiable {
     }
 }
 
-extension ContextMenuItemViewData: Hashable {
-    static func == (lhs: ContextMenuItemViewData, rhs: ContextMenuItemViewData) -> Bool {
+extension ContextMenuButtonViewData: Hashable {
+    static func == (lhs: ContextMenuButtonViewData, rhs: ContextMenuButtonViewData) -> Bool {
         return lhs.id == rhs.id
     }
     
