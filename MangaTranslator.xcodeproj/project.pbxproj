@@ -136,6 +136,13 @@
 			path = ViewData;
 			sourceTree = "<group>";
 		};
+		931FC18A24F962EF00E3F20F /* LocalDatabase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocalDatabase;
+			sourceTree = "<group>";
+		};
 		933604BE24E9EC52003985B4 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +199,7 @@
 		933604F524E9EC6E003985B4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				931FC18A24F962EF00E3F20F /* LocalDatabase */,
 				931FC18524F894B800E3F20F /* ViewData */,
 				933604F924E9ECB6003985B4 /* Models */,
 				93C7D33124EF0BDD002591B4 /* Views */,

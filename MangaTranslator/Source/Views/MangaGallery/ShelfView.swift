@@ -18,7 +18,7 @@ struct ShelfView: View {
                                    toDestination: toDestination,
                                    numberOfPreviewsPerRow: 2,
                                    numberOfPreviewsPerScreen: 3,
-                                   makeContextMenuViewData: { _ in return [] })
+                                   makeContextMenuViewData: makeContextMenuViewData)
                 .navigationBarTitle("Home", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: { addNewBook() },
                                                      label: { Text("Add Book")}))
@@ -29,11 +29,19 @@ struct ShelfView: View {
 protocol ShelfViewModel {
     func addNewBook()
     func toDestination(itemIndex: Int) -> BookView
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData]
 }
 
 extension ShelfView: ShelfViewModel {
     var books: [Book] {
         return shelf.books
+    }
+    
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData] {
+        return [
+            ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
+            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: { self.shelf.remove(at: itemIndex) }, type: .destructive)
+        ]
     }
     
     func addNewBook() {

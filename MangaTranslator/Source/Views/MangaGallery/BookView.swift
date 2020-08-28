@@ -52,8 +52,8 @@ protocol BookViewModel {
 extension BookView: BookViewModel {
     func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData] {
         return [
-            ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { self.shelf.remove(pageAtIndex: itemIndex, forBook: bookIndex) }, type: .default),
-            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: {}, type: .destructive)
+            ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
+            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: { self.shelf.remove(pageAtIndex: itemIndex, forBook: bookIndex) }, type: .destructive)
         ]
     }
     
