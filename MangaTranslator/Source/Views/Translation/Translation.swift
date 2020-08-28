@@ -15,40 +15,36 @@ struct Translation: View {
     
     var body: some View {
         VStack {
-            FullScreenView(image: viewModel.manga)
+            TranslationPreview(image: viewModel.manga)
+                .padding(.horizontal, 30)
+                .padding(.vertical, 20)
             
             // Pick Image Button
-            Button(action: {
-                isImagePickerShowing = true
-            }) {
-                Text("Select a manga")
-                    .bold()
-                    .font(.title)
-            }
+            FloatingButton(viewData: ButtonViewData(title: "Select a Manga",
+                                                    iconSystemName: "photo.on.rectangle",
+                                                    action: { isImagePickerShowing = true },
+                                                    type: .default))
+                .padding(.horizontal, 30)
             .sheet(isPresented: $isImagePickerShowing,
                    onDismiss: {},
                    content: {
                     ImagePicker(onImagePicked: viewModel.onImagePicked)
                    })
             // Translate Button
-            Button(action:{
-                viewModel.translateImage()
-            }) {
-                Text("Translate")
-                    .bold()
-                    .font(.title)
-            }
+            FloatingButton(viewData: ButtonViewData(title: "Translate",
+                                                    iconSystemName: "doc.richtext",
+                                                    action: { viewModel.translateImage() },
+                                                    type: .default))
+                .padding(.horizontal, 30)
             
             // Save Button
-            Button(action:{
-                viewModel.saveImage()
-            }) {
-                Text("Save")
-                    .bold()
-                    .font(.title)
-            }
-            
+            FloatingButton(viewData: ButtonViewData(title: "Save",
+                                                    iconSystemName: "square.and.arrow.down",
+                                                    action: { viewModel.saveImage() },
+                                                    type: .default))
+                .padding(.horizontal, 30)
         }
+        .padding(.bottom, 20)
     }
     
     init(onSaveImage: @escaping (Data) -> Void) {

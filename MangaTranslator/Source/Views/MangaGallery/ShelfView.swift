@@ -29,7 +29,7 @@ struct ShelfView: View {
 protocol ShelfViewModel {
     func addNewBook()
     func toDestination(itemIndex: Int) -> BookView
-    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData]
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData]
 }
 
 extension ShelfView: ShelfViewModel {
@@ -37,10 +37,10 @@ extension ShelfView: ShelfViewModel {
         return shelf.books
     }
     
-    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData] {
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData] {
         return [
-            ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
-            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: { self.shelf.remove(at: itemIndex) }, type: .destructive)
+            ButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
+            ButtonViewData(title: "Delete", iconSystemName: "trash", action: { self.shelf.remove(at: itemIndex) }, type: .destructive)
         ]
     }
     

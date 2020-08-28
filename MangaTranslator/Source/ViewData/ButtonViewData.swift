@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ContextMenuButtonViewData: Identifiable {
-    let title: String
+struct ButtonViewData: Identifiable {
+    let title: String?
     let iconSystemName: String
     let action: () -> Void
     let type: ActionType
@@ -19,10 +19,17 @@ struct ContextMenuButtonViewData: Identifiable {
         case `default`
         case cancel
     }
+    
+    init(title: String? = nil, iconSystemName: String, action: @escaping () -> Void, type: ActionType = .default) {
+        self.title = title
+        self.iconSystemName = iconSystemName
+        self.action = action
+        self.type = type
+    }
 }
 
-extension ContextMenuButtonViewData: Hashable {
-    static func == (lhs: ContextMenuButtonViewData, rhs: ContextMenuButtonViewData) -> Bool {
+extension ButtonViewData: Hashable {
+    static func == (lhs: ButtonViewData, rhs: ButtonViewData) -> Bool {
         return lhs.id == rhs.id
     }
     

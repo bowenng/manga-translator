@@ -20,12 +20,9 @@ struct BookView: View {
                                     numberOfPreviewsPerScreen: 3,
                                     makeContextMenuViewData: makeContextMenuViewData)
             .navigationBarTitle(title, displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                isAddPageViewShowing = true
-            },
-                                                 label: {
-                Text("New")
-            }))
+            .navigationBarItems(trailing: IconButton(viewData: ButtonViewData(iconSystemName: "plus.circle",
+                                                                                  action: { isAddPageViewShowing = true },
+                                                                                  type: .default)))
             .sheet(isPresented: $isAddPageViewShowing,
                    onDismiss: {}) {
                 Translation(onSaveImage: { image in
@@ -47,14 +44,14 @@ protocol BookViewModel {
     var pages: [Page] { get }
     func saveImage(image: Data)
     func toDestination(itemIndex: Int) -> FullScreenView
-    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData]
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData]
 }
 
 extension BookView: BookViewModel {
-    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData] {
+    func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData] {
         return [
-            ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
-            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: { onRemovePage(itemIndex) }, type: .destructive)
+            ButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
+            ButtonViewData(title: "Delete", iconSystemName: "trash", action: { onRemovePage(itemIndex) }, type: .destructive)
         ]
     }
     

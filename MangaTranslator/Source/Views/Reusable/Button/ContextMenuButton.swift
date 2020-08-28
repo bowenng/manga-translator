@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContextMenuButton: View {
-    let viewData: ContextMenuButtonViewData
+    let viewData: ButtonViewData
     var body: some View {
         Button(action: viewData.action) {
             HStack {
                 Image(systemName: viewData.iconSystemName)
-                Text(viewData.title)
+                if let title = viewData.title {
+                    Text(title)
+                }
             }
         }
     }
@@ -21,7 +23,7 @@ struct ContextMenuButton: View {
 
 struct ContextMenuButton_Previews: PreviewProvider {
     static var previews: some View {
-        ContextMenuButton(viewData: ContextMenuButtonViewData(title: "Delete",
+        ContextMenuButton(viewData: ButtonViewData(title: "Delete",
                                                               iconSystemName: "trash",
                                                               action: {},
                                                               type: .default))

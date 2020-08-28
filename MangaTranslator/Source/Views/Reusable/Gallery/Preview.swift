@@ -10,7 +10,7 @@ import SwiftUI
 struct Preview: View {
     let image: UIImage
     let config: Preview.Config
-    let options: [ContextMenuButtonViewData]
+    let options: [ButtonViewData]
     
     var body: some View {
         Image(uiImage: image)
@@ -28,7 +28,7 @@ struct Preview: View {
     
     public init(image: UIImage,
                 config: Preview.Config,
-                options: [ContextMenuButtonViewData] = []) {
+                options: [ButtonViewData] = []) {
         self.image = image
         self.config = config
         self.options = options
