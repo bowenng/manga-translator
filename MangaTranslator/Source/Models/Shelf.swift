@@ -8,23 +8,40 @@
 import Foundation
 
 class Shelf: ObservableObject {
-    @Published var books: [Book] = []
+    @Published var books: [Book]
+    let serializer: MangaSerializer = Database.shared
     
     public func append(_ newBook: Book) {
         books.append(newBook)
+        serializer.add(book: newBook)
     }
     
     public func remove(at index: Int) {
-        books.remove(at: index)
+        let removedBook = books.remove(at: index)
+        serializer.remove(book: removedBook)
     }
     
     public func append(_ newPage: Page, toBook index: Int) {
         objectWillChange.send()
+        let book = books[index]
         books[index].append(newPage)
+        serializer.add(page: newPage, inBook: book)
     }
     
     public func remove(pageAtIndex pageIndex: Int, forBook bookIndex: Int) {
         objectWillChange.send()
-        books[bookIndex].remove(pageAtIndex: pageIndex)
+        let removedPage = books[bookIndex].remove(pageAtIndex: pageIndex)
+        serializer.remove(page: removedPage)
+    }
+    
+    public func rename(bookAtIndex index: Int, newTitle: String) {
+        objectWillChange.send()
+        books[index].title = newTitle
+        let book = books[index]
+        serializer.rename(book: book)
+    }
+    
+    init() {
+        books = serializer.loadBooks()
     }
 }

@@ -11,21 +11,15 @@ import SwiftUI
 struct Book: Identifiable, Codable {
     var pages: [Page] = []
     var title: String
-    var lastViewed: Date
-    
+    var createdTimeStamp: Date = Date()
     var id = UUID()
-    
-    public init(title: String) {
-        self.title = title
-        self.lastViewed = Date()
-    }
     
     public mutating func append(_ page: Page) {
         pages.append(page)
     }
     
-    public mutating func remove(pageAtIndex index: Int) {
-        pages.remove(at: index)
+    public mutating func remove(pageAtIndex index: Int) -> Page {
+        return pages.remove(at: index)
     }
 }
 
@@ -35,7 +29,13 @@ extension Book: Hashable {
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(lastViewed)
+        hasher.combine(createdTimeStamp)
+    }
+}
+
+extension Book: Comparable {
+    static func < (lhs: Book, rhs: Book) -> Bool {
+        return lhs.createdTimeStamp < rhs.createdTimeStamp
     }
 }
 

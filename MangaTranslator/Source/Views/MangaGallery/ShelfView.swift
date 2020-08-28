@@ -63,7 +63,7 @@ extension Book {
         let dateFormatter = DateFormatter()
         let dateFormat = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: Locale.current)
         dateFormatter.dateFormat = dateFormat
-        return dateFormatter.string(from: lastViewed)
+        return dateFormatter.string(from: createdTimeStamp)
     }
 }
 

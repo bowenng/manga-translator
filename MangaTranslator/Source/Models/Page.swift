@@ -20,6 +20,12 @@ extension Page : Hashable {
     }
 }
 
+extension Page: Comparable {
+    static func < (lhs: Page, rhs: Page) -> Bool {
+        return lhs.createdTimeStamp < rhs.createdTimeStamp
+    }
+}
+
 extension Page: Viewable {
     var preview: UIImage {
         return UIImage(data: image)!
