@@ -20,8 +20,12 @@ struct ShelfView: View {
                                    numberOfPreviewsPerScreen: 3,
                                    makeContextMenuViewData: makeContextMenuViewData)
                 .navigationBarTitle("Home", displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: { addNewBook() },
-                                                     label: { Text("Add Book")}))
+                .navigationBarItems(trailing: HStack{
+                    IconButton(viewData: ButtonViewData(iconSystemName: "plus.circle",
+                                                        action: {addNewBook()}))
+                    IconButton(viewData: ButtonViewData(iconSystemName: "ellipsis",
+                                                        action: {}))
+                })
         }
     }
 }

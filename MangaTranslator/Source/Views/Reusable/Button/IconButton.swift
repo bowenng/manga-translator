@@ -16,7 +16,7 @@ struct IconButton: View {
                 Image(systemName: viewData.iconSystemName)
                     .font(.title)
             }
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 5)
             .foregroundColor(.black)
         }
     }

@@ -12,6 +12,7 @@ struct BookView: View {
     // MARK: - View
     
     @State var isAddPageViewShowing: Bool = false
+    @State var isActionSheetShowing: Bool = false
     
     var body: some View {
         Gallery<Page, FullScreenView>(items: pages,
@@ -19,16 +20,25 @@ struct BookView: View {
                                     numberOfPreviewsPerRow: 2,
                                     numberOfPreviewsPerScreen: 3,
                                     makeContextMenuViewData: makeContextMenuViewData)
-            .navigationBarTitle(title, displayMode: .inline)
-            .navigationBarItems(trailing: IconButton(viewData: ButtonViewData(iconSystemName: "plus.circle",
-                                                                                  action: { isAddPageViewShowing = true },
-                                                                                  type: .default)))
+            .navigationBarTitle(title,
+                                displayMode: .inline)
+            .navigationBarItems(trailing:
+                IconButton(viewData: ButtonViewData(iconSystemName: "ellipsis",
+                                                    action: { isActionSheetShowing = true }))
+            )
             .sheet(isPresented: $isAddPageViewShowing,
                    onDismiss: {}) {
                 Translation(onSaveImage: { image in
                     saveImage(image: image)
                     isAddPageViewShowing = false
                 })
+            }
+            .actionSheet(isPresented: $isActionSheetShowing) {
+                ActionSheet(title: Text("What action would like to perform?"), buttons: [
+                    .default(Text("Translate")) { isAddPageViewShowing = true },
+                    .default(Text("Rename")) {  },
+                    .cancel()
+                ])
             }
     }
     
