@@ -17,7 +17,8 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) {
                 LazyVGrid(columns: layout,
                           alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                    ForEach(Array(viewModel.items.enumerated()), id: \.element) { index, item in
+                    ForEach(viewModel.items.indices, id: \.self) { index in
+                        let item = viewModel.items[index]
                         NavigationLink(
                             destination: viewModel.toDestination(index)) {
                             Preview(image: item.preview,

@@ -37,8 +37,9 @@ struct BookView: View {
     
     // MARK: - ViewModel
 
-    @EnvironmentObject var shelf: Shelf
-    let bookIndex: Int
+    let book: Book
+    let onSaveImage: (_ image: Data) -> Void
+    let onRemovePage: (_ index: Int) -> Void
 }
 
 protocol BookViewModel {
@@ -53,20 +54,20 @@ extension BookView: BookViewModel {
     func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ContextMenuButtonViewData] {
         return [
             ContextMenuButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
-            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: { self.shelf.remove(pageAtIndex: itemIndex, forBook: bookIndex) }, type: .destructive)
+            ContextMenuButtonViewData(title: "Delete", iconSystemName: "trash", action: { onRemovePage(itemIndex) }, type: .destructive)
         ]
     }
     
     var title: String {
-        return shelf.books[bookIndex].title
+        return book.title
     }
     
     var pages: [Page] {
-        return shelf.books[bookIndex].pages
+        return book.pages
     }
     
     func saveImage(image: Data) {
-        shelf.append(Page(image: image), toBook: bookIndex)
+        onSaveImage(image)
     }
     
     func toDestination(itemIndex: Int) -> FullScreenView {
@@ -77,7 +78,7 @@ extension BookView: BookViewModel {
 struct MangaGallery_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BookView(bookIndex: 0)
-        }.environmentObject(Shelf())
+            BookView(book: PreviewData().shelf.books.first!, onSaveImage: {_ in }, onRemovePage: {_ in })
+        }
     }
 }

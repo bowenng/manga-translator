@@ -10,7 +10,7 @@ import SwiftUI
 struct ShelfView: View {
     
     // MARK: - ViewModel
-    @EnvironmentObject var shelf: Shelf
+    @ObservedObject var shelf: Shelf
     
     var body: some View {
         NavigationView {
@@ -49,7 +49,14 @@ extension ShelfView: ShelfViewModel {
     }
     
     func toDestination(itemIndex: Int) -> BookView {
-        return BookView(bookIndex: itemIndex)
+        return BookView(book: shelf.books[itemIndex],
+                        onSaveImage: { image in
+                            let newPage = Page(image: image)
+                            shelf.append(newPage, toBook: itemIndex)
+                        },
+                        onRemovePage: { pageIndex in
+                            shelf.remove(pageAtIndex: pageIndex, forBook: itemIndex)
+                        })
     }
 }
 
@@ -69,6 +76,6 @@ extension Book {
 
 struct ShelfView_Previews: PreviewProvider {
     static var previews: some View {
-        ShelfView().environmentObject(Shelf())
+        ShelfView(shelf: Shelf())
     }
 }
