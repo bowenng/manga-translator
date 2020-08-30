@@ -9,20 +9,16 @@ import Foundation
 import UIKit
 
 struct PreviewData {
-    var shelf: Shelf = Shelf()
+    let shelf: Shelf = Shelf()
     
     init() {
-        for _ in 0...5 {
-            shelf.append(PreviewData.makeShelf())
+        for i in 0...5 {
+            shelf.books.append(Book(title: "Untitled"))
+            for _ in 0...2 {
+                let newPage = Page(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!)
+                shelf.books[i].pages.append(newPage)
+            }
         }
-    }
-    
-    private static func makeShelf() -> Book {
-        var book = Book(title: "manga")
-        for _ in 0...5 {
-            book.append(Page(image: UIImage(named: "manga")!.jpegData(compressionQuality: 1.0)!))
-        }
-        return book
     }
 }
 

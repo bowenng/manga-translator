@@ -15,7 +15,7 @@ struct BookView: View {
     @State var isActionSheetShowing: Bool = false
     
     var body: some View {
-        Gallery<Page, FullScreenView>(items: pages,
+        Gallery<Page, SwipeView>(items: pages,
                                     toDestination: toDestination,
                                     numberOfPreviewsPerRow: 2,
                                     numberOfPreviewsPerScreen: 3,
@@ -25,13 +25,6 @@ struct BookView: View {
                 IconButton(viewData: ButtonViewData(iconSystemName: "ellipsis",
                                                     action: { isActionSheetShowing = true }))
             )
-            .sheet(isPresented: $isAddPageViewShowing,
-                   onDismiss: {}) {
-                Translation(onSaveImage: { image in
-                    saveImage(image: image)
-                    isAddPageViewShowing = false
-                })
-            }
             .actionSheet(isPresented: $isActionSheetShowing) {
                 ActionSheet(title: Text("What action would like to perform?"), buttons: [
                     .default(Text("Translate")) { isAddPageViewShowing = true },
@@ -39,6 +32,14 @@ struct BookView: View {
                     .cancel()
                 ])
             }
+            .fullScreenCover(isPresented: $isAddPageViewShowing,
+                   onDismiss: {}) {
+                Translation(onSaveImage: { image in
+                    saveImage(image: image)
+                    isAddPageViewShowing = false
+                })
+            }
+            
     }
     
     // MARK: - ViewModel
@@ -52,11 +53,12 @@ protocol BookViewModel {
     var title: String { get }
     var pages: [Page] { get }
     func saveImage(image: Data)
-    func toDestination(itemIndex: Int) -> FullScreenView
+    func toDestination(itemIndex: Int) -> SwipeView
     func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData]
 }
 
 extension BookView: BookViewModel {
+    
     func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData] {
         return [
             ButtonViewData(title: "Rename", iconSystemName: "pencil", action: { }, type: .default),
@@ -76,8 +78,8 @@ extension BookView: BookViewModel {
         onSaveImage(image)
     }
     
-    func toDestination(itemIndex: Int) -> FullScreenView {
-        return FullScreenView (image: pages[itemIndex].preview)
+    func toDestination(itemIndex: Int) -> SwipeView {
+        return SwipeView(book: book)
     }
 }
 
