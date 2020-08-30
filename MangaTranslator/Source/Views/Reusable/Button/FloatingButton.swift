@@ -21,11 +21,13 @@ struct FloatingButton: View {
                         .font(.title)
                 }
             }
+            .disabled(viewData.isDisabled)
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .foregroundColor(.white)
-            .background(Color.black)
+            .foregroundColor(viewData.foregroundColor)
+            .background(viewData.backgroundColor)
+            .opacity(viewData.isDisabled ? 0.4 : 1.0)
             .cornerRadius(10)
             .shadow(radius: 3.0)
         }
@@ -34,7 +36,10 @@ struct FloatingButton: View {
 
 struct FloatingButton_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingButton(viewData: ButtonViewData(title: "Button", iconSystemName: "printer", action: {}, type: .default))
-                .previewLayout(.fixed(width: 200, height: 100))
+        VStack {
+            FloatingButton(viewData: ButtonViewData(title: "Button", iconSystemName: "printer", action: {}, type: .default))
+            FloatingButton(viewData: ButtonViewData(title: "Button", iconSystemName: "printer", action: {}, type: .default,isDisabled: true))
+        }
+        .previewLayout(.fixed(width: 200, height: 200))
     }
 }
