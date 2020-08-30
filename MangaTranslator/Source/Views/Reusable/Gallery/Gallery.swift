@@ -26,7 +26,8 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                                     caption: item.previewCaption,
                                     config: viewModel.previewConfig,
                                     options: viewModel.makeContextMenuViewData(index))
-                        }.buttonStyle(PlainButtonStyle())
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, outerPaddingSize)
