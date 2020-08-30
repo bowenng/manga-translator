@@ -27,6 +27,7 @@ struct Preview: View {
                 .frame(width: config.previewSize.width, height: config.previewSize.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(config.cornerRadiusSize)
                 .shadow(radius: config.shadowRadiusSize)
+                .contentShape(Rectangle())
             
             if let title = title {
                 Text(title)
