@@ -77,7 +77,9 @@ extension Translation {
         
         func translateImage() {
             translator.translate(image: manga.jpegData(compressionQuality: 0.5)!,
-                                 completion: onImageTranslated)
+                                 completion: onImageTranslated,
+                                 onUpload: onUpload,
+                                 onDownload: onDownload)
         }
         
         func onImageTranslated(result: Result<Data?, AFError>) {
@@ -92,6 +94,14 @@ extension Translation {
                 // Todo: Add error notification
                 print(error)
             }
+        }
+        
+        func onUpload(progres: Progress) {
+            
+        }
+        
+        func onDownload(progres: Progress) {
+            
         }
     }
 }

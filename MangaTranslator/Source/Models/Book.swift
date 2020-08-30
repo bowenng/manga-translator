@@ -13,6 +13,14 @@ struct Book: Identifiable, Codable {
     var title: String
     var createdTimeStamp: Date = Date()
     var id = UUID()
+
+    var caption: String {
+        let template = "yyyy/MM/dd"
+        let dateFormatter = DateFormatter()
+        let dateFormat = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: Locale.current)
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: createdTimeStamp)
+    }
     
     public mutating func append(_ page: Page) {
         pages.append(page)
@@ -40,6 +48,14 @@ extension Book: Comparable {
 }
 
 extension Book: Viewable {
+    var previewTitle: String? {
+        return title
+    }
+    
+    var previewCaption: String? {
+        return caption
+    }
+    
     var preview: UIImage {
         return pages.isEmpty ? UIImage(named: "manga")! : pages.first!.preview
     }

@@ -20,8 +20,7 @@ struct BookView: View {
                                     numberOfPreviewsPerRow: 2,
                                     numberOfPreviewsPerScreen: 3,
                                     makeContextMenuViewData: makeContextMenuViewData)
-            .navigationBarTitle(title,
-                                displayMode: .inline)
+            .navigationBarTitle(title, displayMode: .inline)
             .navigationBarItems(trailing:
                 IconButton(viewData: ButtonViewData(iconSystemName: "ellipsis",
                                                     action: { isActionSheetShowing = true }))

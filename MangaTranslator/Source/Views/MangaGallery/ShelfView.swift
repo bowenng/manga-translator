@@ -18,7 +18,8 @@ struct ShelfView: View {
                                    toDestination: toDestination,
                                    numberOfPreviewsPerRow: 2,
                                    numberOfPreviewsPerScreen: 3,
-                                   makeContextMenuViewData: makeContextMenuViewData)
+                                   makeContextMenuViewData: makeContextMenuViewData,
+                                   previewPaddingSize: 30)
                 .navigationBarTitle("Home", displayMode: .inline)
                 .navigationBarItems(trailing: HStack{
                     IconButton(viewData: ButtonViewData(iconSystemName: "plus.circle",
@@ -67,14 +68,6 @@ extension ShelfView: ShelfViewModel {
 extension Book {
     var thumbnail: UIImage {
         return pages.isEmpty ? UIImage(systemName: "photo")! : UIImage(data: pages.first!.image)!
-    }
-    
-    var caption: String {
-        let template = "yyyy/MM/dd"
-        let dateFormatter = DateFormatter()
-        let dateFormat = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: Locale.current)
-        dateFormatter.dateFormat = dateFormat
-        return dateFormatter.string(from: createdTimeStamp)
     }
 }
 

@@ -22,6 +22,8 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                         NavigationLink(
                             destination: viewModel.toDestination(index)) {
                             Preview(image: item.preview,
+                                    title: item.previewTitle,
+                                    caption: item.previewCaption,
                                     config: viewModel.previewConfig,
                                     options: viewModel.makeContextMenuViewData(index))
                         }.buttonStyle(PlainButtonStyle())
@@ -95,6 +97,8 @@ extension Gallery {
 
 protocol Viewable {
     var preview: UIImage { get }
+    var previewTitle: String? { get }
+    var previewCaption: String? { get }
 }
 
 struct Gallery_Previews: PreviewProvider {

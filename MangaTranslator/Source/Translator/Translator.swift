@@ -10,5 +10,8 @@ import Foundation
 import UIKit
 
 protocol Translator {
-    func translate(image: Data, completion: @escaping (Result<Data?, AFError>) -> Void)
+    func translate(image: Data,
+                   completion: @escaping (Result<Data?, AFError>) -> Void,
+                   onUpload: ((Progress) -> Void)?,
+                   onDownload: ((Progress) -> Void)?)
 }

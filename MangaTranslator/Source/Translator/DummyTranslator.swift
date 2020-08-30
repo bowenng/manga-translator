@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class DummyTranslator: Translator {
-    func translate(image: Data, completion: @escaping (Result<Data?, AFError>) -> Void) {
+    func translate(image: Data, completion: @escaping (Result<Data?, AFError>) -> Void, onUpload: ((Progress) -> Void)?, onDownload: ((Progress) -> Void)?) {
         completion(.success(image))
     }
 }

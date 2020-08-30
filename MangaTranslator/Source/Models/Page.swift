@@ -27,6 +27,14 @@ extension Page: Comparable {
 }
 
 extension Page: Viewable {
+    var previewTitle: String? {
+        return nil
+    }
+    
+    var previewCaption: String? {
+        return nil
+    }
+    
     var preview: UIImage {
         return UIImage(data: image)!
     }
