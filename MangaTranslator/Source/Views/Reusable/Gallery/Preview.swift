@@ -36,6 +36,7 @@ struct Preview: View {
             if let caption = caption {
                 Text(caption)
                     .font(.caption)
+                    .foregroundColor(.secondary)
             }
         }
         

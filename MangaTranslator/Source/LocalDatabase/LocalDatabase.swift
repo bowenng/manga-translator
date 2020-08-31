@@ -35,6 +35,8 @@ class Database: MangaSerializer {
                                                                 appropriateFor: nil,
                                                                 create: true)
             let databaseUrl = documentDirectory.appendingPathComponent("MangaTranslator").appendingPathExtension("sqlite3")
+            
+            print(databaseUrl)
             database = try Connection(databaseUrl.path)
         } catch {
             // TODO: error handling
@@ -140,7 +142,8 @@ class Database: MangaSerializer {
                                     createdTimeStamp: createdTimeStamp,
                                     id: UUID(uuidString: uuidString)!)
                     
-                    for pageRow in try database.prepare(pagesTable) {
+                    let joinedPagesTable = booksTable.where(booksTable[bookId] == uuidString).join(pagesTable, on: booksTable[bookId] == pagesTable[bookId])
+                    for pageRow in try database.prepare(joinedPagesTable) {
                         do {
                             let manga = try pageRow.get(pageData)
                             let createdTimeStamp = try pageRow.get(pageCreatedTimeStamp)
