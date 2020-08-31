@@ -11,7 +11,6 @@ struct BookView: View {
     
     // MARK: - View
     
-    @State var isAddPageViewShowing: Bool = false
     @State var isActionSheetShowing: Bool = false
     
     var body: some View {
@@ -27,19 +26,10 @@ struct BookView: View {
             )
             .actionSheet(isPresented: $isActionSheetShowing) {
                 ActionSheet(title: Text("What action would like to perform?"), buttons: [
-                    .default(Text("Translate")) { isAddPageViewShowing = true },
                     .default(Text("Rename")) {  },
                     .cancel()
                 ])
             }
-            .fullScreenCover(isPresented: $isAddPageViewShowing,
-                   onDismiss: {}) {
-                Translation(onSaveImage: { image in
-                    saveImage(image: image)
-                    isAddPageViewShowing = false
-                })
-            }
-            
     }
     
     // MARK: - ViewModel
@@ -52,7 +42,6 @@ struct BookView: View {
 protocol BookViewModel {
     var title: String { get }
     var pages: [Page] { get }
-    func saveImage(image: Data)
     func toDestination(itemIndex: Int) -> SwipeView
     func makeContextMenuViewData(forItemAtIndex itemIndex: Int) -> [ButtonViewData]
 }
@@ -72,10 +61,6 @@ extension BookView: BookViewModel {
     
     var pages: [Page] {
         return book.pages
-    }
-    
-    func saveImage(image: Data) {
-        onSaveImage(image)
     }
     
     func toDestination(itemIndex: Int) -> SwipeView {

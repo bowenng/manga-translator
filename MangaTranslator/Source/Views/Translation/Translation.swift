@@ -20,7 +20,6 @@ struct Translation: View {
     // MARK: - ViewModel fields
     @State var manga: UIImage = UIImage(named: "manga")!
     
-    private let onSaveImage: (Data) -> Void
     private let translator: Translator = GoogleCloudTranslator()
     
     // MARK: - body
@@ -38,41 +37,28 @@ struct Translation: View {
             .padding(.vertical, 20)
             
                 
-            
-            // Pick Image Button
-            FloatingButton(viewData: ButtonViewData(title: "Select a Manga",
-                                                    iconSystemName: "photo.on.rectangle",
-                                                    action: { isImagePickerShowing = true },
-                                                    type: .default,
-                                                    isDisabled: areButtonsDisabled))
-                .padding(.horizontal, 30)
-            .sheet(isPresented: $isImagePickerShowing,
-                   onDismiss: {},
-                   content: {
-                    ImagePicker(onImagePicked: onImagePicked)
-                   })
-            
-            // Translate Button
-            FloatingButton(viewData: ButtonViewData(title: "Translate",
-                                                    iconSystemName: "doc.richtext",
-                                                    action: { translateImage() },
-                                                    type: .default,
-                                                    isDisabled: areButtonsDisabled))
-                .padding(.horizontal, 30)
-            
-            // Save Button
-            FloatingButton(viewData: ButtonViewData(title: "Save",
-                                                    iconSystemName: "square.and.arrow.down",
-                                                    action: { saveImage() },
-                                                    type: .default,
-                                                    isDisabled: areButtonsDisabled))
-                .padding(.horizontal, 30)
+            HStack {
+                // Pick Image Button
+                FloatingIconButton(viewData: ButtonViewData(iconSystemName: "photo.on.rectangle",
+                                                        action: { isImagePickerShowing = true },
+                                                        type: .default,
+                                                        isDisabled: areButtonsDisabled))
+                    .padding(.horizontal, 30)
+                .sheet(isPresented: $isImagePickerShowing,
+                       onDismiss: {},
+                       content: {
+                        ImagePicker(onImagePicked: onImagePicked)
+                       })
+                
+                // Save Button
+                FloatingIconButton(viewData: ButtonViewData(iconSystemName: "square.and.arrow.down",
+                                                            action: { saveImage() },
+                                                            type: .default,
+                                                            isDisabled: areButtonsDisabled))
+                    .padding(.horizontal, 30)
+            }
         }
         .padding(.bottom, 20)
-    }
-    
-    init(onSaveImage: @escaping (Data) -> Void) {
-        self.onSaveImage = onSaveImage
     }
 }
 
@@ -89,11 +75,12 @@ protocol TranslationViewModel {
 extension Translation: TranslationViewModel {
     
     func saveImage() {
-        self.onSaveImage(manga.jpegData(compressionQuality: 1.0)!)
+        
     }
     
     func onImagePicked(image: UIImage) {
         manga = image
+        translateImage()
     }
     
     func translateImage() {
@@ -142,8 +129,6 @@ extension Translation: TranslationViewModel {
 
 struct Translation_Previews: PreviewProvider {
     static var previews: some View {
-        Translation() { _ in
-            
-        }
+        Translation()
     }
 }
