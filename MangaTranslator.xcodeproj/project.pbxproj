@@ -22,6 +22,7 @@
 		931FC1A124FC18AF00E3F20F /* PageNumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC1A024FC18AF00E3F20F /* PageNumberIndicator.swift */; };
 		931FC1A524FC5C2B00E3F20F /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC1A424FC5C2B00E3F20F /* Main.swift */; };
 		931FC1A724FC76A800E3F20F /* FloatingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC1A624FC76A800E3F20F /* FloatingIconButton.swift */; };
+		931FC1A924FC829A00E3F20F /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931FC1A824FC829A00E3F20F /* Save.swift */; };
 		933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */; };
 		933604CF24E9EC54003985B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933604CE24E9EC54003985B4 /* Assets.xcassets */; };
 		933604DD24E9EC54003985B4 /* MangaTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933604DC24E9EC54003985B4 /* MangaTranslatorTests.swift */; };
@@ -76,6 +77,7 @@
 		931FC1A024FC18AF00E3F20F /* PageNumberIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumberIndicator.swift; sourceTree = "<group>"; };
 		931FC1A424FC5C2B00E3F20F /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		931FC1A624FC76A800E3F20F /* FloatingIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingIconButton.swift; sourceTree = "<group>"; };
+		931FC1A824FC829A00E3F20F /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 		933604C724E9EC52003985B4 /* MangaTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933604CA24E9EC52003985B4 /* MangaTranslatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTranslatorApp.swift; sourceTree = "<group>"; };
 		933604CE24E9EC54003985B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			children = (
 				93C7D34B24EF3163002591B4 /* Translation.swift */,
 				931FC19024F9929900E3F20F /* TranslationPreview.swift */,
+				931FC1A824FC829A00E3F20F /* Save.swift */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				9336050324E9F969003985B4 /* Translator.swift in Sources */,
 				9336050724E9FA1C003985B4 /* ImagePicker.swift in Sources */,
 				931FC17F24F6EBE300E3F20F /* FullScreenView.swift in Sources */,
+				931FC1A924FC829A00E3F20F /* Save.swift in Sources */,
 				933604CB24E9EC52003985B4 /* MangaTranslatorApp.swift in Sources */,
 				93C7D32E24EF0329002591B4 /* Page.swift in Sources */,
 				93C7D34024EF224B002591B4 /* Shelf.swift in Sources */,

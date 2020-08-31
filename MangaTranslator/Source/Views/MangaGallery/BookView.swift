@@ -15,7 +15,7 @@ struct BookView: View {
     
     var body: some View {
         Gallery<Page, SwipeView>(items: pages,
-                                    toDestination: toDestination,
+                                 onPreviewClicked: .navigation(toDestination: toDestination),
                                     numberOfPreviewsPerRow: 2,
                                     numberOfPreviewsPerScreen: 3,
                                     makeContextMenuViewData: makeContextMenuViewData)

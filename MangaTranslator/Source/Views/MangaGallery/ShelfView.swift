@@ -15,18 +15,16 @@ struct ShelfView: View {
     var body: some View {
         NavigationView {
             Gallery<Book, BookView>(items: books,
-                                   toDestination: toDestination,
+                                    onPreviewClicked: .navigation(toDestination: toDestination),
                                    numberOfPreviewsPerRow: 2,
                                    numberOfPreviewsPerScreen: 3,
                                    makeContextMenuViewData: makeContextMenuViewData,
                                    previewPaddingSize: 30)
                 .navigationBarTitle("Home", displayMode: .inline)
-                .navigationBarItems(trailing: HStack{
+                .navigationBarItems(trailing:
                     IconButton(viewData: ButtonViewData(iconSystemName: "plus.circle",
                                                         action: {addNewBook()}))
-                    IconButton(viewData: ButtonViewData(iconSystemName: "ellipsis",
-                                                        action: {}))
-                })
+                )
         }
     }
 }

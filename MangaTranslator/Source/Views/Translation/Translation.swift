@@ -10,7 +10,10 @@ import SwiftUI
 
 struct Translation: View {
     
+    @ObservedObject var shelf: Shelf
+    
     @State var isImagePickerShowing: Bool = false
+    @State var isSaveImageViewShowing: Bool = false
     
     // MARK: - Loading states
     @State var areButtonsDisabled: Bool = false
@@ -44,18 +47,20 @@ struct Translation: View {
                                                         type: .default,
                                                         isDisabled: areButtonsDisabled))
                     .padding(.horizontal, 30)
-                .sheet(isPresented: $isImagePickerShowing,
-                       onDismiss: {},
-                       content: {
+                .sheet(isPresented: $isImagePickerShowing) {
                         ImagePicker(onImagePicked: onImagePicked)
-                       })
+                       }
                 
                 // Save Button
                 FloatingIconButton(viewData: ButtonViewData(iconSystemName: "square.and.arrow.down",
-                                                            action: { saveImage() },
+                                                            action: { isSaveImageViewShowing = true },
                                                             type: .default,
                                                             isDisabled: areButtonsDisabled))
                     .padding(.horizontal, 30)
+                    .sheet(isPresented: $isSaveImageViewShowing) {
+                        Save(saveToBook: saveImage,
+                             shelf: shelf)
+                    }
             }
         }
         .padding(.bottom, 20)
@@ -63,7 +68,7 @@ struct Translation: View {
 }
 
 protocol TranslationViewModel {
-    func saveImage()
+    func saveImage(atBook index: Int)
     func onImagePicked(image: UIImage)
     func translateImage()
     func onImageTranslated(result: Result<Data?, AFError>)
@@ -74,8 +79,9 @@ protocol TranslationViewModel {
 
 extension Translation: TranslationViewModel {
     
-    func saveImage() {
-        
+    func saveImage(atBook index: Int) {
+        shelf.append(Page(image: manga.jpegData(compressionQuality: 1.0)!), toBook: index)
+        isSaveImageViewShowing = false
     }
     
     func onImagePicked(image: UIImage) {
@@ -129,6 +135,6 @@ extension Translation: TranslationViewModel {
 
 struct Translation_Previews: PreviewProvider {
     static var previews: some View {
-        Translation()
+        Translation(shelf: Shelf())
     }
 }

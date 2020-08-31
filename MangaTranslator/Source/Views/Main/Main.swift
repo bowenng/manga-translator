@@ -12,7 +12,7 @@ struct Main: View {
     
     var body: some View {
         TabView {
-            Translation()
+            Translation(shelf: shelf)
                 .tabItem {
                     Image(systemName: "translate")
                     Text("Translate")

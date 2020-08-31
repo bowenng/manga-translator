@@ -19,15 +19,27 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                           alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                     ForEach(viewModel.items.indices, id: \.self) { index in
                         let item = viewModel.items[index]
-                        NavigationLink(
-                            destination: viewModel.toDestination(index)) {
-                            Preview(image: item.preview,
-                                    title: item.previewTitle,
-                                    caption: item.previewCaption,
-                                    config: viewModel.previewConfig,
-                                    options: viewModel.makeContextMenuViewData(index))
+                        switch viewModel.onPreviewClicked {
+                        case .navigation(let toDestination):
+                            NavigationLink(destination: toDestination(index)) {
+                                Preview(image: item.preview,
+                                        title: item.previewTitle,
+                                        caption: item.previewCaption,
+                                        config: viewModel.previewConfig,
+                                        options: viewModel.makeContextMenuViewData(index))
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        case .action(let handler):
+                            Button(action: { handler(index) }) {
+                                    Preview(image: item.preview,
+                                            title: item.previewTitle,
+                                            caption: item.previewCaption,
+                                            config: viewModel.previewConfig,
+                                            options: viewModel.makeContextMenuViewData(index))
+                                    
+                                   }
+                                   .buttonStyle(PlainButtonStyle())
                         }
-                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, outerPaddingSize)
@@ -35,7 +47,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
     }
     
     public init(items: [ItemType],
-                toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
+                onPreviewClicked: ClickAction,
                 numberOfPreviewsPerRow: Int,
                 numberOfPreviewsPerScreen: Int,
                 makeContextMenuViewData: @escaping (Int) -> [ButtonViewData] = { _ in [] },
@@ -50,7 +62,7 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                                               previewPaddingSize: previewPaddingSize,
                                               previewShadowRadiusSize: previewShadowRadiusSize)
         viewModel = Gallery.ViewModel(items: items,
-                                      toDestination: toDestination,
+                                      onPreviewClicked: onPreviewClicked,
                                       previewConfig: previewConfig,
                                       makeContextMenuViewData: makeContextMenuViewData)
         layout = Array(repeating: GridItem(.flexible()),
@@ -73,6 +85,11 @@ struct Gallery<ItemType: Hashable & Viewable, DetailedView: View>: View {
                               paddingSize: previewPaddingSize,
                               shadowRadiusSize: previewShadowRadiusSize)
     }
+    
+    enum ClickAction {
+        case navigation(toDestination: (Int) -> DetailedView)
+        case action(handler: (Int) -> Void)
+    }
 }
 
 extension Gallery {
@@ -80,16 +97,16 @@ extension Gallery {
         /// A list of items being displayed in the gallery
         let items: [ItemType]
         /// A function that transforms an item into a detailed view that will be presented when a preview is clicked
-        let toDestination: (_ itemIndex: Int) -> DetailedView
+        let onPreviewClicked: ClickAction
         let previewConfig: Preview.Config
         let makeContextMenuViewData: (Int) -> [ButtonViewData]
         
         public init(items: [ItemType],
-                    toDestination: @escaping (_ itemIndex: Int) -> DetailedView,
+                    onPreviewClicked: ClickAction,
                     previewConfig: Preview.Config,
                     makeContextMenuViewData: @escaping (Int) -> [ButtonViewData]) {
             self.items = items
-            self.toDestination = toDestination
+            self.onPreviewClicked = onPreviewClicked
             self.previewConfig = previewConfig
             self.makeContextMenuViewData = makeContextMenuViewData
         }
@@ -107,10 +124,12 @@ struct Gallery_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Gallery<Page, FullScreenView>(items: items,
-                                   toDestination: {FullScreenView(image: items[$0].preview)},
-                                   numberOfPreviewsPerRow: 2,
-                                   numberOfPreviewsPerScreen: 2,
-                                   makeContextMenuViewData: { _ in return [] })
+                                          onPreviewClicked: .navigation(toDestination: { FullScreenView(image: items[$0].preview) }),
+                                          numberOfPreviewsPerRow: 2,
+                                          numberOfPreviewsPerScreen: 2,
+                                          makeContextMenuViewData: { _ in return [] })
         }
     }
 }
+
+
