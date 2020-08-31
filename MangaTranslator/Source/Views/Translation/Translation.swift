@@ -16,12 +16,13 @@ struct Translation: View {
     @State var isSaveImageViewShowing: Bool = false
     
     // MARK: - Loading states
-    @State var areButtonsDisabled: Bool = false
+    @State var isSelectImageButtonDisabled: Bool = false
+    @State var isSaveImageButtonDisabled: Bool = true
     @State var loadingDescription: String?
     @State var translationPreviewBlurRadius: CGFloat = 0.0
     
     // MARK: - ViewModel fields
-    @State var manga: UIImage = UIImage(named: "manga")!
+    @State var manga: UIImage?
     
     private let translator: Translator = GoogleCloudTranslator()
     
@@ -29,9 +30,11 @@ struct Translation: View {
     
     var body: some View {
         VStack {
+            Spacer()
             ZStack {
                 TranslationPreview(image: manga)
                     .blur(radius: translationPreviewBlurRadius)
+                
                 if let loadingDescription = loadingDescription {
                     LoadingSpinner(description: loadingDescription)
                 }
@@ -39,13 +42,13 @@ struct Translation: View {
             .padding(.horizontal, 30)
             .padding(.vertical, 20)
             
-                
+            Spacer()
             HStack {
                 // Pick Image Button
                 FloatingIconButton(viewData: ButtonViewData(iconSystemName: "photo.on.rectangle",
                                                         action: { isImagePickerShowing = true },
                                                         type: .default,
-                                                        isDisabled: areButtonsDisabled))
+                                                        isDisabled: isSelectImageButtonDisabled))
                     .padding(.horizontal, 30)
                 .sheet(isPresented: $isImagePickerShowing) {
                         ImagePicker(onImagePicked: onImagePicked)
@@ -55,7 +58,7 @@ struct Translation: View {
                 FloatingIconButton(viewData: ButtonViewData(iconSystemName: "square.and.arrow.down",
                                                             action: { isSaveImageViewShowing = true },
                                                             type: .default,
-                                                            isDisabled: areButtonsDisabled))
+                                                            isDisabled: isSaveImageButtonDisabled))
                     .padding(.horizontal, 30)
                     .sheet(isPresented: $isSaveImageViewShowing) {
                         Save(saveToBook: saveImage,
@@ -80,6 +83,7 @@ protocol TranslationViewModel {
 extension Translation: TranslationViewModel {
     
     func saveImage(atBook index: Int) {
+        guard let manga = manga else { return }
         shelf.append(Page(image: manga.jpegData(compressionQuality: 1.0)!), toBook: index)
         isSaveImageViewShowing = false
     }
@@ -90,6 +94,7 @@ extension Translation: TranslationViewModel {
     }
     
     func translateImage() {
+        guard let manga = manga else { return }
         translator.translate(image: manga.jpegData(compressionQuality: 0.5)!,
                              completion: onImageTranslated,
                              onUpload: onUpload,
@@ -114,19 +119,22 @@ extension Translation: TranslationViewModel {
     // MARK: - UI updates on translation progress
     
     func onUpload(progress: Progress) {
-        areButtonsDisabled = true
+        isSelectImageButtonDisabled = true
+        isSaveImageButtonDisabled = true
         translationPreviewBlurRadius = 10.0
         loadingDescription = progress.fractionCompleted < 1.0 ? "Uploading manga: \(progress.fractionCompleted * 100)..." : "Translating..."
     }
     
     func onDownload(progress: Progress) {
-        areButtonsDisabled = true
+        isSelectImageButtonDisabled = true
+        isSaveImageButtonDisabled = true
         translationPreviewBlurRadius = 10.0
         loadingDescription = "Downloading translated manga: \(progress.fractionCompleted * 100)..."
     }
     
     func onComplete() {
-        areButtonsDisabled = false
+        isSelectImageButtonDisabled = false
+        isSaveImageButtonDisabled = false
         translationPreviewBlurRadius = 0.0
         loadingDescription = nil
     }

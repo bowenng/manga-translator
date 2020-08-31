@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct TranslationPreview: View {
-    let image: UIImage
+    let image: UIImage?
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+        HStack {
+            if let image = image {
+                ScrollView(.vertical, showsIndicators: true) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .cornerRadius(20.0)
+                        .shadow(radius: 10.0)
+                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))
+                }
+            } else {
+                Text("Select a picture to get started")
+                    .foregroundColor(.secondary)
+            }
         }
-        .cornerRadius(20.0)
-        .shadow(radius: 10.0)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 2))
-        
     }
 }
 

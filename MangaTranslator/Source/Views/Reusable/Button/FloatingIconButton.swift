@@ -19,9 +19,10 @@ struct FloatingIconButton: View {
                 .background(viewData.backgroundColor)
                 .clipShape(Circle())
                 .foregroundColor(viewData.foregroundColor)
-                .disabled(viewData.isDisabled)
-                
         }
+        .opacity(viewData.isDisabled ? 0.4 : 1.0)
+        .disabled(viewData.isDisabled)
+        .shadow(radius: 3.0)
     }
 }
 
